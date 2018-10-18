@@ -8,4 +8,4 @@ A RolePlaying website
 
 Use | Command
 ------------ | -------------
-Run on device/emulator | tns run <platform>
+Run on device/emulator | `tns run <platform>`
