@@ -30,3 +30,11 @@
     transform: rotate(360deg);
   }
 }
+
+.sw-notification {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #eee;
+  border: solid 1px lightgray;
+  border-radius: 4px;
+}

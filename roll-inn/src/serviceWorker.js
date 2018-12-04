@@ -54,6 +54,11 @@ export function register(config) {
   }
 }
 
+// Creates a super minimalist observable to notify the app when updates are available.
+function O(){this.a=[]}O.prototype={subscribe:function(a){return a&&(this.a.push(a),void 0!==this.b&&a(this.b))},next:function(a){this.b=a;for(var b=0,d=this.a;b<d.length;b++)(0,d[b])(a)}};
+var obs = new O();
+window.swObservable = obs;
+
 function registerValidSW(swUrl, config) {
   navigator.serviceWorker
     .register(swUrl)
@@ -73,6 +78,7 @@ function registerValidSW(swUrl, config) {
                 'New content is available and will be used when all ' +
                   'tabs for this page are closed. See http://bit.ly/CRA-PWA.'
               );
+              obs.next(true);
 
               // Execute callback
               if (config && config.onUpdate) {
@@ -83,6 +89,7 @@ function registerValidSW(swUrl, config) {
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
               console.log('Content is cached for offline use.');
+              obs.next(false);
 
               // Execute callback
               if (config && config.onSuccess) {

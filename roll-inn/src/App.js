@@ -3,6 +3,17 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasUpdate: undefined };
+  }
+
+  componentWillMount() {
+    if (window.swObservable) {
+      window.swObservable.subscribe(hasUpdate => this.setState({ hasUpdate }));
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -20,6 +31,11 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        {this.state.hasUpdate !== undefined && (this.state.hasUpdate ? (
+          <p className="sw-notification">Une mise à jour est disponible. Veuillez rafraîchir l'application.</p>
+        ) : (
+          <p className="sw-notification">L'application est maintenant en cache et prête à être utilisée hors ligne.</p>
+        ))}
       </div>
     );
   }
