@@ -8,8 +8,6 @@ A RolePlaying website
 
 ## Tech
 - Web : [React](https://reactjs.org/)
-- Mobile : [React Native](https://facebook.github.io/react-native/)
-- Cross Platform : [ReactXP](https://microsoft.github.io/reactxp/)
 - Desktop : [Electron](https://electronjs.org/)
 - DataBase : [Firebase](https://firebase.google.com/)
 
