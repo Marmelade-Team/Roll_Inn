@@ -11,8 +11,14 @@ cache:
 addons:
   chrome: stable
 
+install:
+  - npm install
+
 script:
-  - npm run lint
-  - npm run test:headless
+  - npm run test
   - npm run build
-  - xvfb-run npm run e2e
+
+deploy:
+  provider: firebase
+  token:
+    secure: "1/5Vhi4oD35BmEkV1Hhrf233rGfmpz5cjQ2nr8xlhrtkDvlrpEJJxcwc7Gw2sMcUgP"
