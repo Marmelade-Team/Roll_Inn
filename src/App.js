@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import LobbiesContainer from './containers/lobbiesContainer'
+import GameContainer from './containers/gameContainer'
 
 class App extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class App extends Component {
   render() {
     return (
       <LobbiesContainer/>
+      <GameContainer/>
     );
   }
 }

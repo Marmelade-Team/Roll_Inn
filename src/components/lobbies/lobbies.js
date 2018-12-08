@@ -10,7 +10,7 @@ class Lobbies extends Component {
     return (
       <div>
         <h1>Lobbies</h1>
-        <input type="text"/>
+        <input type="text" id='searchField' />
       </div>
     )
   }
