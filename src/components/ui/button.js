@@ -5,8 +5,8 @@ class Button extends Component {
 
   render() {
     return (
-      <div className="Button">
-        home
+      <div className="button ">
+        { this.props.text }
       </div>
     );
   }
