@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './home.css';
+import './home.scss';
 
 class Home extends Component {
 
@@ -7,6 +7,16 @@ class Home extends Component {
     return (
       <div className="Home">
         home
+        <div className="oui">pio</div>
+        <div className="oui">pio</div>
+        <div className="oui">pio</div>
+        <div className="oui">pio</div>
+        <div className="oui">pio</div>
+        <div className="oui">pio</div>
+        <div className="oui">pio</div>
+        <div className="oui">pio</div>
+        <div className="oui">pio</div>
+        <div className="oui">pio</div>
       </div>
     );
   }
