@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import './style/game.css';
+import './style/game.scss';
+import GameMenu from './gameMenu';
+import GameGrid from './gameGrid';
 
 class Game extends Component {
   
@@ -10,13 +12,9 @@ class Game extends Component {
 
   render() {
     return (
-        <div class="wrapper">
-            <div class="one">Un</div>
-            <div class="two">Deux</div>
-            <div class="three">Trois</div>
-            <div class="four">Quatre</div>
-            <div class="five">Cinq</div>
-            <div class="six">Six</div>
+        <div className="game">
+          <GameGrid />
+          <GameMenu />
         </div>
     );
   }
