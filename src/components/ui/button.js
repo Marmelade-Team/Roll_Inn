@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import './home.scss';
+import './button.scss';
 
-class Home extends Component {
+class Button extends Component {
 
   render() {
     return (
-      <div className="Home">
+      <div className="Button">
         home
       </div>
     );
   }
 }
 
-export default Home;
+export default Button;
