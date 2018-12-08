@@ -10,7 +10,7 @@ const fakeDonnee = [
     name : `Le champ des damnés`,
     playerMax : 5,
     playerNumber : 3,
-    public : true,
+    locked : true,
     img: `https://i.imgur.com/YQ499qE.jpg`
   },
   {
@@ -19,7 +19,7 @@ const fakeDonnee = [
     name : `Le champ des damnés  2`,
     playerMax : 5,
     playerNumber : 2,
-    public : false,
+    locked : false,
     img: `https://i.imgur.com/1GYwaQG.jpg`
   }
 ]
@@ -39,19 +39,19 @@ class Lobbies extends Component {
   }
 
   filterName(){
-    console.log("filterName")
+    this.props.lobbiesActions.setFilter('Name')
   }
 
   filterDate(){
-    console.log("filterDate")
+    this.props.lobbiesActions.setFilter('Date')
   }
 
   filterPlayers(){
-    console.log("filterPlayers")
+    this.props.lobbiesActions.setFilter('Players')
   }
 
-  filterPublic(bool){
-    console.log(bool)
+  filterPublic(locked){
+    this.props.lobbiesActions.setLocked(locked)
   }
 
   renderFilterBar(){
@@ -62,7 +62,6 @@ class Lobbies extends Component {
         <Button text='Players' className='filter' onClick={() => this.filterPlayers()}/>
         <Button text='Public' className='filter' onClick={() => this.filterPublic(true)}/>
         <Button text='Private' className='filter' onClick={() => this.filterPublic(false)}/>
-
       </div>
     )
   }

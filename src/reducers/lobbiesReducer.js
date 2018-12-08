@@ -1,14 +1,23 @@
 const initialState = {
   lobbies : [],
-  
+  filter : 'none',
+  locked : 'none'
 }
 
 export default (state = initialState, action) => {
  switch (action.type) {
-  case 'SIMPLE_ACTION':
+  case 'SET_FILTER':
    return {
-    result: action.payload
+     ...state,
+    filter: action.filter
    }
+
+   case 'SET_FILTER':
+   return  {
+     ...state,
+     locked : action.locked
+   }
+
   default:
    return state
  }
