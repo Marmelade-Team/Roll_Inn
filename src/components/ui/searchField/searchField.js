@@ -3,7 +3,12 @@ import React, { Component } from 'react'
 class SearchField extends Component{
 
   render(){
-    <input type="text" onChange={this.props.onChange}/>
+    return(
+      <div>
+        
+        <input type="text" onChange={this.props.onChange()}/>
+      </div>
+    )
   }
 }
 
