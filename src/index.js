@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import configureStore from './store/store';
+import './config/fontAwesome';
 
 ReactDOM.render(
    <Provider store={configureStore()}>
