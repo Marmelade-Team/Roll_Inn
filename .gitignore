@@ -12,6 +12,7 @@
 /build
 
 # misc
+
 .DS_Store
 .env.local
 .env.development.local
@@ -27,6 +28,7 @@ yarn-error.log*
 # Edit at https://www.gitignore.io/?templates=node
 
 ### Node ###
+
 # Logs
 logs
 *.log
@@ -35,6 +37,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Runtime data
+
 pids
 *.pid
 *.seed
@@ -108,4 +111,5 @@ typings/
 .dynamodb/
 
 # End of https://www.gitignore.io/api/node
+
 *.cache
