@@ -1,5 +1,14 @@
+@import '../../style/colors.scss';
 
 .button {
-    background-color: white;
-    border: solid 1px black;
+    background-color: $color-light;
+    border: solid 1px $color-black;
+    padding: 2px 5px;
+    cursor: pointer;
+    &:hover {
+        background-color: $color-dark;
+    }
+    &:active {
+        background-color: $color-warning;
+    }
 }
