@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './style/gameGrid.scss';
+import GameCardAdventure from './gameCardAdventure';
 
 class GameGrid extends Component {
   
@@ -11,7 +12,7 @@ class GameGrid extends Component {
   render() {
     return (
         <div className="gameGrid">
-            <div className="block">Un</div>
+            <GameCardAdventure />
         </div>
     );
   }
