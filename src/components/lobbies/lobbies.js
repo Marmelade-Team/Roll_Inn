@@ -26,6 +26,10 @@ const fakeDonnee = [
 const dateToString = date => `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
 class Lobbies extends Component {
 
+  componentWillMount(){
+    this.props.lobbies.lobbies = fakeDonnee
+  }
+
   componentDidMount(){
     console.log(this.props)
   }
@@ -34,10 +38,31 @@ class Lobbies extends Component {
     console.log(index)
   }
 
+  filterName(){
+    console.log("filterName")
+  }
+
+  filterDate(){
+    console.log("filterDate")
+  }
+
+  filterPlayers(){
+    console.log("filterPlayers")
+  }
+
+  filterPublic(bool){
+    console.log(bool)
+  }
+
   renderFilterBar(){
     return(
       <div className='FilterBar'>
-        <Button text='Name' className='filter'/> <Button text='Date' className='filter'/>
+        <Button text='Name' className='filter' onClick={() => this.filterName()}/>
+        <Button text='Date' className='filter' onClick={() => this.filterDate()}/>
+        <Button text='Players' className='filter' onClick={() => this.filterPlayers()}/>
+        <Button text='Public' className='filter' onClick={() => this.filterPublic(true)}/>
+        <Button text='Private' className='filter' onClick={() => this.filterPublic(false)}/>
+
       </div>
     )
   }
@@ -46,7 +71,7 @@ class Lobbies extends Component {
     return (
       <div className="Lobbies">
       {this.renderFilterBar()}
-      {fakeDonnee.map ((item , index) => {
+      {((this.props.lobbies.lobbies && this.props.lobbies.lobbies) || []).map ((item , index) => {
         return(
           <LobbyCard
             key={item+index}

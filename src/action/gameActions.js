@@ -1,5 +1,6 @@
-export function testAction () {
+export function setFilter (filter) {
   return {
-    type: 'ActionTest'
+    type: 'SET_FILTER',
+    filter
   }
 }

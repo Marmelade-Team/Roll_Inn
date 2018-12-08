@@ -1,5 +1,6 @@
 const initialState = {
-  lobbies : []
+  lobbies : [],
+  
 }
 
 export default (state = initialState, action) => {
