@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './lobbies.scss'
 import LobbyCard from './lobbyCard'
+import Button from '../ui/button'
 
 const fakeDonnee = [
   {
@@ -36,7 +37,7 @@ class Lobbies extends Component {
   renderFilterBar(){
     return(
       <div className='FilterBar'>
-        <span> </span>
+        <Button text='Name' className='filter'/> <Button text='Date' className='filter'/>
       </div>
     )
   }
@@ -48,6 +49,7 @@ class Lobbies extends Component {
       {fakeDonnee.map ((item , index) => {
         return(
           <LobbyCard
+            key={item+index}
             srcImg={item.img}
             className="card"
             public = {item.public}

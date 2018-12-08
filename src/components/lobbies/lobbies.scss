@@ -25,5 +25,8 @@ $cardSize : 200px;
       border: solid;
       border-radius: 3px;
       margin-bottom: 20px;
+      .filter{
+        display: inline-block;
+      }
     }
 }
