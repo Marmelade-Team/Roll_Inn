@@ -1,14 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './containers/appContainer';
+import Home from './components/home/home'
+import GameContainer from './containers/gameContainer'
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import configureStore from './store/store';
 
 ReactDOM.render(
    <Provider store={configureStore()}>
-   <App />
+        <Router>
+            <Route path="/index" component={Home} />
+        </Router>
+        <Router>
+            <Route path="/game" component={GameContainer} />
+        </Router>
    </Provider>
   , document.getElementById('root'));
 
