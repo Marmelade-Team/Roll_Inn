@@ -8,8 +8,6 @@ A RolePlaying website made with React.js
 
 ## Tech
 - Web : [React](https://reactjs.org/)
-- Mobile : [React Native](https://facebook.github.io/react-native/)
-- Cross Platform : [ReactXP](https://microsoft.github.io/reactxp/)
 - Desktop : [Electron](https://electronjs.org/)
 - DataBase : [Firebase](https://firebase.google.com/)
 
@@ -20,5 +18,10 @@ A RolePlaying website made with React.js
 
 Use | Command
 ------------ | -------------
-Run on browser | ``
-Run on device/emulator | `tns run <platform>`
+Install depedencies | `npm install`
+Run on browser | `npm start`
+Launches tests | `npm test`
+Build the app | `npm run build`
+Deploy the app | `firebase deploy`
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
