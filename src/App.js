@@ -14,6 +14,10 @@ class App extends Component {
     }
   }
 
+  componentDidMount(){
+    console.log(this.props)
+  }
+
   render() {
     return (
       <div className="App">
