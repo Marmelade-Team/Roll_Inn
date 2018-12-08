@@ -7,6 +7,16 @@ class Home extends Component {
     return (
       <div className="Home">
         home
+        <div className="oui">pio</div>
+        <div className="oui">pio</div>
+        <div className="oui">pio</div>
+        <div className="oui">pio</div>
+        <div className="oui">pio</div>
+        <div className="oui">pio</div>
+        <div className="oui">pio</div>
+        <div className="oui">pio</div>
+        <div className="oui">pio</div>
+        <div className="oui">pio</div>
       </div>
     );
   }
