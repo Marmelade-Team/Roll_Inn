@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './lobbies.css'
+import SearchField from '../ui/searchField/searchField'
 
 class Lobbies extends Component {
 
@@ -8,9 +10,8 @@ class Lobbies extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Lobbies</h1>
-        <input type="text" id='searchField' />
+      <div id="lobbies">
+      
       </div>
     )
   }
