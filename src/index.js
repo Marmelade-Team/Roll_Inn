@@ -7,6 +7,12 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import configureStore from './store/store';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAd } from '@fortawesome/free-solid-svg-icons'
+import {  } from '@fortawesome/free-brands-svg-icons'
+
+library.add(faAd);
 
 ReactDOM.render(
    <Provider store={configureStore()}>
