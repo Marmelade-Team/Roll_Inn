@@ -10,10 +10,13 @@ class Game extends Component {
 
   render() {
     return (
-        <div className="container">
-            <div className="item item-1"></div>
-            <div className="item item-2"></div>
-            <div className="item item-3"></div>
+        <div class="wrapper">
+            <div class="one">Un</div>
+            <div class="two">Deux</div>
+            <div class="three">Trois</div>
+            <div class="four">Quatre</div>
+            <div class="five">Cinq</div>
+            <div class="six">Six</div>
         </div>
     );
   }
