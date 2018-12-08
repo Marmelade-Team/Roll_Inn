@@ -5,11 +5,11 @@ require("firebase/firestore");
 firebase.initializeApp(FirebaseConfig);
 
 // Initialize Cloud Firestore through Firebase
-var db = firebase.firestore();
+var database = firebase.firestore();
 
 // Disable deprecated features
-db.settings({
+database.settings({
     timestampsInSnapshots: true
 });
 
-export const db = db
+export const db = database
