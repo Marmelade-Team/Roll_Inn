@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './lobbies.scss'
 import LobbyCard from './lobbyCard'
 import Button from '../ui/button'
+import SearchBar from '../ui/searchBar'
+import ButtonGroup from '../ui/buttonGroup';
 
 const fakeDonnee = [
   {
@@ -57,11 +59,15 @@ class Lobbies extends Component {
   renderFilterBar(){
     return(
       <div className='FilterBar'>
-        <Button className='filter' onClick={() => this.filterName()}> Name </Button>
-        <Button className='filter' onClick={() => this.filterDate()}> Date </Button>
-        <Button className='filter' onClick={() => this.filterPlayers()}> Players </Button>
-        <Button className='filter' onClick={() => this.filterPublic(true)}> Public </Button>
-        <Button className='filter' onClick={() => this.filterPublic(false)}> Private </Button>
+        <ButtonGroup className='inline'>
+          <Button onClick={() => this.filterName()}> Name </Button>
+          <Button onClick={() => this.filterDate()}> Date </Button>
+          <Button onClick={() => this.filterPlayers()}> Players </Button>
+        </ButtonGroup>
+        <ButtonGroup className='inline'>
+          <Button onClick={() => this.filterPublic(true)}> Public </Button>
+          <Button onClick={() => this.filterPublic(false)}> Private </Button>
+        </ButtonGroup>
 
       </div>
     )
@@ -70,21 +76,22 @@ class Lobbies extends Component {
   render() {
     return (
       <div className="Lobbies">
-      {this.renderFilterBar()}
-      {((this.props.lobbies.lobbies && this.props.lobbies.lobbies) || []).map ((item , index) => {
-        return(
-          <LobbyCard
-            key={item+index}
-            srcImg={item.img}
-            className="card"
-            public = {item.public}
-            name={item.name}
-            date={dateToString(new Date(item.date))}
-            numberOfPlayer = {item.playerNumber}
-            MaxNumberOfPlayer = {item.playerMax}
-            onClick = {() => this.clickCard(index)}/>
-        )
-      })}
+        <SearchBar/>
+        {this.renderFilterBar()}
+        {((this.props.lobbies.lobbies && this.props.lobbies.lobbies) || []).map ((item , index) => {
+          return(
+            <LobbyCard
+              key={item+index}
+              srcImg={item.img}
+              className="card"
+              public = {item.public}
+              name={item.name}
+              date={dateToString(new Date(item.date))}
+              numberOfPlayer = {item.playerNumber}
+              MaxNumberOfPlayer = {item.playerMax}
+              onClick = {() => this.clickCard(index)}/>
+          )
+        })}
       </div>
     )
   }
