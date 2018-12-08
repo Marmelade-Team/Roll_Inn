@@ -9,7 +9,7 @@ class Button extends Component {
         className={"button " + this.props.className}
         onClick={this.props.onClick}
         type= 'button'>
-          { this.props.text }
+          { this.props.children }
       </button>
     );
   }
