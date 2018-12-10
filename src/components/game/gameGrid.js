@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style/gameGrid.scss';
-import GameCardAdventure from './gameCardAdventure';
+import GameCard from './gameCard';
 
 class GameGrid extends Component {
   
@@ -12,7 +12,7 @@ class GameGrid extends Component {
   render() {
     return (
         <div className="gameGrid">
-            <GameCardAdventure />
+            <GameCard title="Adventure" bg="https://img.20mn.fr/r5SvxqSZSrWS4W587_eJxw/310x190_fond-ecran-defaut-windows-xp.jpg" />
         </div>
     );
   }
