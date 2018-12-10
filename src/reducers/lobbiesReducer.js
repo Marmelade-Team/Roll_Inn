@@ -2,7 +2,8 @@ const initialState = {
   lobbies : [],
   filter : 'none',
   locked : 'none',
-  sort: 'up'
+  sort: 'up',
+  style: 'grid'
 }
 
 export default (state = initialState, action) => {
@@ -23,6 +24,12 @@ export default (state = initialState, action) => {
    return  {
      ...state,
      sort : action.sort
+   }
+
+   case 'SET_STYLE':
+   return  {
+     ...state,
+     style : action.style
    }
 
   default:

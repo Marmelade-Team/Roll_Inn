@@ -2,12 +2,17 @@
 @import './style/utilSpacing.scss';
 @import './style/utilPosition.scss';
 
+$background-image: url("https://wow.zamimg.com/uploads/screenshots/normal/591873-sturmwind.jpg");
+
 html {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: $background-image;
+  background-size: cover;
+  background-position: center;
 }
 
 html,

@@ -61,7 +61,8 @@ class Lobbies extends Component {
     this.props.lobbiesActions.setSort(sort)
   }
 
-  filterList(type){
+  filteStyle(style){
+    this.props.lobbiesActions.setStyle(style)
   }
 
   renderFilterBar(){
@@ -99,10 +100,10 @@ class Lobbies extends Component {
             </Button>
           </ButtonGroup>
           <ButtonGroup  className="m-b-xs m-l-xs">
-            <Button onClick={() => this.filterList('list')}>
+            <Button onClick={() => this.filteStyle('list')}>
               <FontAwesomeIcon icon="list" />
             </Button>
-            <Button onClick={() => this.filterList('grid')}>
+            <Button onClick={() => this.filteStyle('grid')}>
               <FontAwesomeIcon icon="th" />
             </Button>
           </ButtonGroup>
