@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 import Home from './components/home/home'
 import GameContainer from './containers/gameContainer'
 import LobbiesContainer from './containers/lobbiesContainer'
