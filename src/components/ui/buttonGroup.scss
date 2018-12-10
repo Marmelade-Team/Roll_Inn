@@ -34,4 +34,7 @@
     &.lg .button {
         @extend %button-lg;
     }
+    &.block {
+        @extend %button-block;
+    }
 }
