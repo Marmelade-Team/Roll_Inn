@@ -11,6 +11,9 @@
     background-color: $color-white;
     border: solid 3px $color-black;
     border-radius: 3px;
+    .filterRight {
+      text-align: end;
+    }
   }
   .lobbyCardBlock {
     width: calc(100% - 10px);

@@ -114,7 +114,7 @@ class Lobbies extends Component {
           </ButtonGroup>
         </div>
         <div className="filler"></div>
-        <div className="m-t-xs m-h-sm">
+        <div className="filterRight m-t-xs m-h-sm">
           <ButtonGroup className="m-b-xs">
             <Button onClick={() => this.setSort(SORT.UP)}
                 className={this.props.store.sort === SORT.UP ? 'active' : ''}>
