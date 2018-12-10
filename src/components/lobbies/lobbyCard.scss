@@ -1,0 +1,57 @@
+@import '../../style/color.scss';
+
+$card-size-list : 100px;
+$card-size-grid : 200px;
+
+.LobbyCard {
+    display: inline-flex;
+    flex-direction: row;
+    height: $card-size-list;
+    width: calc(100% - 24px);
+    margin-top: -5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: solid 2px $color-black;
+    border-radius: 3px;
+    background-color: $color-white;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    .imageContainer {
+        height: $card-size-list;
+        width: $card-size-list;
+        transition: height 0.4s ease;
+        transition: width 0.4s ease;
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    .cardContext {
+        display: flex;
+        flex: 1;
+        .cardText {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    &.grid {
+        flex-direction: column;
+        height: 250px;
+        width: calc(100% - 24px);
+        margin-top: 15px;
+        @media (min-width: 400px) {
+            width: calc(50% - 24px);
+        }
+        @media (min-width: 750px) {
+            width: calc(33.33% - 24px);
+        }
+        @media (min-width: 1100px) {
+            width: calc(25% - 24px);
+        }
+        .imageContainer {
+            height: $card-size-grid;
+            width: 100%;
+        }
+    }
+}

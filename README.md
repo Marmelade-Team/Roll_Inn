@@ -1,5 +1,5 @@
 
-A RolePlaying website
+A RolePlaying website made with React.js
 
 # Documentation
 
