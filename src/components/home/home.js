@@ -28,7 +28,7 @@ class Home extends Component {
         <div className="oui">pio</div>
         <div className="oui">pio</div>
         <div className="oui">pio</div>
-        <Button text="fun"/>
+        <Button> fun </Button>
         <FontAwesomeIcon icon="ad" />
       </div>
     );
