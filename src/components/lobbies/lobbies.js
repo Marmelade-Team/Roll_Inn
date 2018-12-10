@@ -132,8 +132,8 @@ class Lobbies extends Component {
 
   render() {
     return (
-      <div className="Lobbies">
-        <SearchBar className="m-v-lg"/>
+      <div className="Lobbies p-v-lg">
+        <SearchBar className="m-b-lg"/>
         {this.renderFilterBar()}
         <div className={"lobbyCardBlock " + this.props.store.style}>
           {((this.props.store.lobbies && this.props.store.lobbies) || []).map ((item , index) => {
