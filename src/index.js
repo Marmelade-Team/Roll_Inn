@@ -14,7 +14,7 @@ ReactDOM.render(
    <Provider store={configureStore()}>
         <Router>
             <React.Fragment>
-                <Route path="/index" component={Home} />
+                <Route exact path="/" component={Home} />
                 <Route path="/game" component={GameContainer} />
                 <Route path="/lobbies" component={LobbiesContainer} />
             </React.Fragment>

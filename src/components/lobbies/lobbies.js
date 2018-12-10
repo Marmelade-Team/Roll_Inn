@@ -24,6 +24,24 @@ const fakeDonnee = [
     playerNumber : 2,
     locked : false,
     img: `https://i.imgur.com/1GYwaQG.jpg`
+  },
+  {
+    gameId: `vFfCHOCuIwHTKGKQYzlB`,
+    date : 1544289281,
+    name : `Le champ des damnés`,
+    playerMax : 5,
+    playerNumber : 3,
+    locked : true,
+    img: `https://i.imgur.com/YQ499qE.jpg`
+  },
+  {
+    gameId: `ceedzed`,
+    date : 15442891953,
+    name : `Le champ des damnés  2`,
+    playerMax : 5,
+    playerNumber : 2,
+    locked : false,
+    img: `https://i.imgur.com/1GYwaQG.jpg`
   }
 ]
 const dateToString = date => `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
@@ -90,7 +108,7 @@ class Lobbies extends Component {
           </ButtonGroup>
         </div>
         <div className="filler"></div>
-        <div className="filterRight m-t-xs m-h-sm">
+        <div className="m-t-xs m-h-sm">
           <ButtonGroup className="m-b-xs">
             <Button onClick={() => this.filterSort('up')}>
               <FontAwesomeIcon icon="sort-amount-up" />
@@ -117,20 +135,22 @@ class Lobbies extends Component {
       <div className="Lobbies">
         <SearchBar className="m-v-lg"/>
         {this.renderFilterBar()}
-        {((this.props.store.lobbies && this.props.store.lobbies) || []).map ((item , index) => {
-          return(
-            <LobbyCardContainer
-              key={item+index}
-              srcImg={item.img}
-              className="card"
-              public = {item.public}
-              name={item.name}
-              date={dateToString(new Date(item.date))}
-              numberOfPlayer = {item.playerNumber}
-              MaxNumberOfPlayer = {item.playerMax}
-              onClick = {() => this.clickCard(index)}/>
-          )
-        })}
+        <div className={"lobbyCardBlock " + this.props.store.style}>
+          {((this.props.store.lobbies && this.props.store.lobbies) || []).map ((item , index) => {
+            return(
+              <LobbyCardContainer
+                key={item+index}
+                srcImg={item.img}
+                className="card"
+                public = {item.public}
+                name={item.name}
+                date={dateToString(new Date(item.date))}
+                numberOfPlayer = {item.playerNumber}
+                MaxNumberOfPlayer = {item.playerMax}
+                onClick = {() => this.clickCard(index)}/>
+            )
+          })}
+        </div>
       </div>
     )
   }

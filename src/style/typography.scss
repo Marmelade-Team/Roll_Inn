@@ -1,10 +1,17 @@
 @import './style/color.scss';
 
 input {
+    min-width: 200px;
     border: solid 2px $color-black;
     outline: none;
     &:hover,
     &:focus {
         background-color: $color-light;
     }
+}
+
+.text-overflow-hide {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
