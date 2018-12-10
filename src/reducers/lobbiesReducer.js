@@ -12,7 +12,7 @@ export default (state = initialState, action) => {
     filter: action.filter
    }
 
-   case 'SET_FILTER':
+   case 'SET_LOCKED':
    return  {
      ...state,
      locked : action.locked

@@ -6,7 +6,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body {
+html, body, #root, .root {
   height: 100%;
   width: 100%;
   margin: 0;

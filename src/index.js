@@ -13,13 +13,11 @@ import './config/fontAwesome';
 ReactDOM.render(
    <Provider store={configureStore()}>
         <Router>
-            <Route path="/index" component={Home} />
-        </Router>
-        <Router>
-            <Route path="/game" component={GameContainer} />
-        </Router>
-        <Router>
-            <Route path="/lobbies" component={LobbiesContainer} />
+            <div className="root">
+                <Route path="/index" component={Home} />
+                <Route path="/game" component={GameContainer} />
+                <Route path="/lobbies" component={LobbiesContainer} />
+            </div>
         </Router>
    </Provider>
   , document.getElementById('root'));
