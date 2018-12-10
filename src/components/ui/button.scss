@@ -4,7 +4,8 @@
     background-color: $color-light;
     border-color: $color-black;
     &:hover,
-    &:active {
+    &:active,
+    &.active {
         background-color: $color-dark;
     }
 }
@@ -14,7 +15,8 @@
     &:hover {
         background-color: $color-success-dark;
     }
-    &:active {
+    &:active,
+    &.active {
         background-color: $color-success;
     }
 }
@@ -24,7 +26,8 @@
     &:hover {
         background-color: $color-info-dark;
     }
-    &:active {
+    &:active,
+    &.active {
         background-color: $color-info;
     }
 }
@@ -34,7 +37,8 @@
     &:hover {
         background-color: $color-danger-dark;
     }
-    &:active {
+    &:active,
+    &.active {
         background-color: $color-danger;
     }
 }
@@ -44,7 +48,8 @@
     &:hover {
         background-color: $color-warning-dark;
     }
-    &:active {
+    &:active,
+    &.active {
         background-color: $color-warning;
     }
 }
