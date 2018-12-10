@@ -21,3 +21,5 @@ deploy:
   message: "Travis deployment"
   on:
     branch: master
+notifications:
+  slack: marmeladeteam:Rrbj7ncQ4Pedu29kqmklHv38
