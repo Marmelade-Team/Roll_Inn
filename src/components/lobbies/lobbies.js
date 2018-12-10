@@ -67,8 +67,8 @@ class Lobbies extends Component {
   renderFilterBar(){
     return(
       <div className="FilterBar m-b-lg">
-        <div className="m-v-xs m-h-sm">
-          <ButtonGroup className="warning m-r-xs">
+        <div className="m-t-xs m-h-sm">
+          <ButtonGroup className="warning m-b-xs m-r-xs">
             <Button onClick={() => this.filterName()}>
               Name
             </Button>
@@ -79,7 +79,7 @@ class Lobbies extends Component {
               Players
             </Button>
           </ButtonGroup>
-          <ButtonGroup>
+          <ButtonGroup  className="m-b-xs">
             <Button onClick={() => this.filterPublic('public')}>
               Public
             </Button>
@@ -89,8 +89,8 @@ class Lobbies extends Component {
           </ButtonGroup>
         </div>
         <div className="filler"></div>
-        <div className="m-v-xs m-h-sm">
-          <ButtonGroup>
+        <div className="filterRight m-t-xs m-h-sm">
+          <ButtonGroup className="m-b-xs">
             <Button onClick={() => this.filterSort('up')}>
               <FontAwesomeIcon icon="sort-amount-up" />
             </Button>
@@ -98,7 +98,7 @@ class Lobbies extends Component {
               <FontAwesomeIcon icon="sort-amount-down" />
             </Button>
           </ButtonGroup>
-          <ButtonGroup className="m-l-xs">
+          <ButtonGroup  className="m-b-xs m-l-xs">
             <Button onClick={() => this.filterList('list')}>
               <FontAwesomeIcon icon="list" />
             </Button>
@@ -114,7 +114,7 @@ class Lobbies extends Component {
   render() {
     return (
       <div className="Lobbies">
-        <SearchBar/>
+        <SearchBar className="m-v-lg"/>
         {this.renderFilterBar()}
         {((this.props.lobbies.lobbies && this.props.lobbies.lobbies) || []).map ((item , index) => {
           return(

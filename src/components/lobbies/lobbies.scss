@@ -5,7 +5,14 @@
     width: 100%;
     .FilterBar{
       display: flex;
+      width: calc(100% - 6px);
+      max-width: calc(800px - 6px);
+      margin-left: auto;
+      margin-right: auto;
       border: solid 3px $color-black;
       border-radius: 3px;
+      .filterRight {
+        text-align: end;
+      }
     }
 }

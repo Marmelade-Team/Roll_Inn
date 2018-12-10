@@ -1,0 +1,10 @@
+@import './style/color.scss';
+
+input {
+    border: solid 2px $color-black;
+    outline: none;
+    &:hover,
+    &:focus {
+        background-color: $color-light;
+    }
+}
