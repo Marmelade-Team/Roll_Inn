@@ -1,7 +1,8 @@
 const initialState = {
   lobbies : [],
   filter : 'none',
-  locked : 'none'
+  locked : 'none',
+  sort: 'up'
 }
 
 export default (state = initialState, action) => {
@@ -16,6 +17,12 @@ export default (state = initialState, action) => {
    return  {
      ...state,
      locked : action.locked
+   }
+
+   case 'SET_SORT':
+   return  {
+     ...state,
+     sort : action.sort
    }
 
   default:

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './lobbies.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import LobbyCard from './lobbyCard'
 import Button from '../ui/button'
 import SearchBar from '../ui/searchBar'
@@ -55,19 +56,43 @@ class Lobbies extends Component {
   filterPublic(locked){
     this.props.lobbiesActions.setLocked(locked)
   }
+  
+  filterSortUp(sort){
+    this.props.lobbiesActions.setSort(sort)
+  }
 
   renderFilterBar(){
     return(
       <div className="FilterBar">
-        <ButtonGroup className="warning sm">
-          <Button onClick={() => this.filterName()}> Name </Button>
-          <Button onClick={() => this.filterDate()}> Date </Button>
-          <Button onClick={() => this.filterPlayers()}> Players </Button>
+        <ButtonGroup className="warning sm m-l-sm m-t-xs m-b-xs">
+          <Button onClick={() => this.filterName()}>
+            Name
+          </Button>
+          <Button onClick={() => this.filterDate()}>
+            Date
+          </Button>
+          <Button onClick={() => this.filterPlayers()}>
+            Players
+          </Button>
         </ButtonGroup>
-        <ButtonGroup>
-          <Button onClick={() => this.filterPublic(true)}> Public </Button>
-          <Button className="success" onClick={() => this.filterPublic(false)}> Private </Button>
+        <ButtonGroup className="m-t-xs m-b-xs">
+          <Button onClick={() => this.filterPublic('public')}>
+            Public
+          </Button>
+          <Button className="success" onClick={() => this.filterPublic('private')}>
+            Private
+          </Button>
         </ButtonGroup>
+        <div className="pull-right">
+          <ButtonGroup>
+            <Button onClick={() => this.filterUp('up')}>
+              <FontAwesomeIcon icon="sort-amount-up" />
+            </Button>
+            <Button onClick={() => this.filterUp('down')}>
+              <FontAwesomeIcon icon="sort-amount-down" />
+            </Button>
+          </ButtonGroup>
+        </div>
       </div>
     )
   }

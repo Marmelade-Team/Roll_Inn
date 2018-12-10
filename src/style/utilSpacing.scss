@@ -2,11 +2,18 @@
 $spacing-none: 0;
 $spacing-xs: 5px;
 $spacing-sm: 10px;
-$spacing-xl: 15px;
+$spacing-md: 15px;
 $spacing-lg: 20px;
 $spacing-xl: 25px;
 
-// Margin
+// <m|p>-<t|b|l|r|v|h>-<none|xs|sm|md|lg|xl>
+// margin | padding
+// top | bottom | left | right | vertical | horizontal
+// none | xs | sm |md | lg | xl
+
+// Margins
+
+// Margin none
 .m-none {
     margin: $spacing-none;
 }
@@ -22,7 +29,16 @@ $spacing-xl: 25px;
 .m-r-none {
     margin-right: $spacing-none;
 }
+.m-v-none {
+    margin-top: $spacing-none;
+    margin-bottom: $spacing-none;
+}
+.m-h-none {
+    margin-left: $spacing-none;
+    margin-right: $spacing-none;
+}
 
+// Margin xs
 .m-xs {
     margin: $spacing-xs;
 }
@@ -38,7 +54,16 @@ $spacing-xl: 25px;
 .m-r-xs {
     margin-right: $spacing-xs;
 }
+.m-v-xs {
+    margin-top: $spacing-xs;
+    margin-bottom: $spacing-xs;
+}
+.m-h-xs {
+    margin-left: $spacing-xs;
+    margin-right: $spacing-xs;
+}
 
+// Margin sm
 .m-sm {
     margin: $spacing-sm;
 }
@@ -54,23 +79,41 @@ $spacing-xl: 25px;
 .m-r-sm {
     margin-right: $spacing-sm;
 }
-
-.m-xl {
-    margin: $spacing-xl;
+.m-v-sm {
+    margin-top: $spacing-sm;
+    margin-bottom: $spacing-sm;
 }
-.m-t-xl {
-    margin-top: $spacing-xl;
-}
-.m-b-xl {
-    margin-bottom: $spacing-xl;
-}
-.m-l-xl {
-    margin-left: $spacing-xl;
-}
-.m-r-xl {
-    margin-right: $spacing-xl;
+.m-h-sm {
+    margin-left: $spacing-sm;
+    margin-right: $spacing-sm;
 }
 
+// Margin md
+.m-md {
+    margin: $spacing-md;
+}
+.m-t-md {
+    margin-top: $spacing-md;
+}
+.m-b-md {
+    margin-bottom: $spacing-md;
+}
+.m-l-md {
+    margin-left: $spacing-md;
+}
+.m-r-md {
+    margin-right: $spacing-md;
+}
+.m-v-md {
+    margin-top: $spacing-md;
+    margin-bottom: $spacing-md;
+}
+.m-h-md {
+    margin-left: $spacing-md;
+    margin-right: $spacing-md;
+}
+
+// Margin lg
 .m-lg {
     margin: $spacing-lg;
 }
@@ -86,7 +129,16 @@ $spacing-xl: 25px;
 .m-r-lg {
     margin-right: $spacing-lg;
 }
+.m-v-lg {
+    margin-top: $spacing-lg;
+    margin-bottom: $spacing-lg;
+}
+.m-h-lg {
+    margin-left: $spacing-lg;
+    margin-right: $spacing-lg;
+}
 
+// Margin xl
 .m-xl {
     margin: $spacing-xl;
 }
@@ -102,8 +154,18 @@ $spacing-xl: 25px;
 .m-r-xl {
     margin-right: $spacing-xl;
 }
+.m-v-xl {
+    margin-top: $spacing-xl;
+    margin-bottom: $spacing-xl;
+}
+.m-h-xl {
+    margin-left: $spacing-xl;
+    margin-right: $spacing-xl;
+}
 
-// Padding
+// Paddings
+
+// Padding none
 .p-none {
     padding: $spacing-none;
 }
@@ -119,7 +181,16 @@ $spacing-xl: 25px;
 .p-r-none {
     padding-right: $spacing-none;
 }
+.p-v-none {
+    padding-top: $spacing-none;
+    padding-bottom: $spacing-none;
+}
+.p-h-none {
+    padding-left: $spacing-none;
+    padding-right: $spacing-none;
+}
 
+// Padding xs
 .p-xs {
     padding: $spacing-xs;
 }
@@ -135,7 +206,16 @@ $spacing-xl: 25px;
 .p-r-xs {
     padding-right: $spacing-xs;
 }
+.p-v-xs {
+    padding-top: $spacing-xs;
+    padding-bottom: $spacing-xs;
+}
+.p-h-xs {
+    padding-left: $spacing-xs;
+    padding-right: $spacing-xs;
+}
 
+// Padding sm
 .p-sm {
     padding: $spacing-sm;
 }
@@ -151,23 +231,41 @@ $spacing-xl: 25px;
 .p-r-sm {
     padding-right: $spacing-sm;
 }
-
-.p-xl {
-    padding: $spacing-xl;
+.p-v-sm {
+    padding-top: $spacing-sm;
+    padding-bottom: $spacing-sm;
 }
-.p-t-xl {
-    padding-top: $spacing-xl;
-}
-.p-b-xl {
-    padding-bottom: $spacing-xl;
-}
-.p-l-xl {
-    padding-left: $spacing-xl;
-}
-.p-r-xl {
-    padding-right: $spacing-xl;
+.p-h-sm {
+    padding-left: $spacing-sm;
+    padding-right: $spacing-sm;
 }
 
+// Padding md
+.p-md {
+    padding: $spacing-md;
+}
+.p-t-md {
+    padding-top: $spacing-md;
+}
+.p-b-md {
+    padding-bottom: $spacing-md;
+}
+.p-l-md {
+    padding-left: $spacing-md;
+}
+.p-r-md {
+    padding-right: $spacing-md;
+}
+.p-v-md {
+    padding-top: $spacing-md;
+    padding-bottom: $spacing-md;
+}
+.p-h-md {
+    padding-left: $spacing-md;
+    padding-right: $spacing-md;
+}
+
+// Padding lg
 .p-lg {
     padding: $spacing-lg;
 }
@@ -183,7 +281,16 @@ $spacing-xl: 25px;
 .p-r-lg {
     padding-right: $spacing-lg;
 }
+.p-v-lg {
+    padding-top: $spacing-lg;
+    padding-bottom: $spacing-lg;
+}
+.p-h-lg {
+    padding-left: $spacing-lg;
+    padding-right: $spacing-lg;
+}
 
+// Padding xl
 .p-xl {
     padding: $spacing-xl;
 }
@@ -197,5 +304,13 @@ $spacing-xl: 25px;
     padding-left: $spacing-xl;
 }
 .p-r-xl {
+    padding-right: $spacing-xl;
+}
+.p-v-xl {
+    padding-top: $spacing-xl;
+    padding-bottom: $spacing-xl;
+}
+.p-h-xl {
+    padding-left: $spacing-xl;
     padding-right: $spacing-xl;
 }

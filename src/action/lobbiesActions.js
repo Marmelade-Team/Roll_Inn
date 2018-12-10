@@ -11,3 +11,10 @@ export function setLocked (locked) {
     locked : locked
   }
 }
+
+export function setSort (sort) {
+  return {
+    type: 'SET_SORT',
+    sort : sort
+  }
+}

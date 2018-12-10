@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './home.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Button from '../ui/button'
 import { db } from '../../firebase'
 
@@ -29,7 +28,6 @@ class Home extends Component {
         <div className="oui">pio</div>
         <div className="oui">pio</div>
         <Button> fun </Button>
-        <FontAwesomeIcon icon="ad" />
       </div>
     );
   }
