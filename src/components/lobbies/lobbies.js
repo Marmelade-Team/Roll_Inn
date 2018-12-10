@@ -66,8 +66,8 @@ class Lobbies extends Component {
 
   renderFilterBar(){
     return(
-      <div className="FilterBar">
-        <div className="filterGroup push-left m-v-xs m-h-sm">
+      <div className="FilterBar m-b-lg">
+        <div className="m-v-xs m-h-sm">
           <ButtonGroup className="warning m-r-xs">
             <Button onClick={() => this.filterName()}>
               Name
@@ -88,7 +88,8 @@ class Lobbies extends Component {
             </Button>
           </ButtonGroup>
         </div>
-        <div className="filterGroup push-right m-v-xs m-h-sm">
+        <div className="filler"></div>
+        <div className="m-v-xs m-h-sm">
           <ButtonGroup>
             <Button onClick={() => this.filterSort('up')}>
               <FontAwesomeIcon icon="sort-amount-up" />

@@ -1,0 +1,21 @@
+@import '../../style/color.scss';
+
+$cardSize : 200px;
+
+.LobbyCard {
+    width : $cardSize;
+    cursor: pointer;
+    border: solid ;
+    border-radius: 3px;
+    display: inline-block;
+    height: $cardSize 200px;
+    width: $cardSize 200px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    background-color: $color-light;
+    img {
+    object-fit: cover;
+    height: $cardSize;
+    width: $cardSize;
+    }
+}
