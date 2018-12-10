@@ -1,4 +1,5 @@
 
+$spacing-none: 0;
 $spacing-xs: 5px;
 $spacing-sm: 10px;
 $spacing-xl: 15px;
@@ -7,19 +8,19 @@ $spacing-xl: 25px;
 
 // Margin
 .m-none {
-    margin: 0;
+    margin: $spacing-none;
 }
 .m-t-none {
-    margin-top: 0;
+    margin-top: $spacing-none;
 }
 .m-b-none {
-    margin-bottom: 0;
+    margin-bottom: $spacing-none;
 }
 .m-l-none {
-    margin-left: 0;
+    margin-left: $spacing-none;
 }
 .m-r-none {
-    margin-right: 0;
+    margin-right: $spacing-none;
 }
 
 .m-xs {
@@ -104,19 +105,19 @@ $spacing-xl: 25px;
 
 // Padding
 .p-none {
-    padding: 0;
+    padding: $spacing-none;
 }
 .p-t-none {
-    padding-top: 0;
+    padding-top: $spacing-none;
 }
 .p-b-none {
-    padding-bottom: 0;
+    padding-bottom: $spacing-none;
 }
 .p-l-none {
-    padding-left: 0;
+    padding-left: $spacing-none;
 }
 .p-r-none {
-    padding-right: 0;
+    padding-right: $spacing-none;
 }
 
 .p-xs {
