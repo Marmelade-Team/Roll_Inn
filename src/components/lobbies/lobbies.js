@@ -57,39 +57,52 @@ class Lobbies extends Component {
     this.props.lobbiesActions.setLocked(locked)
   }
   
-  filterSortUp(sort){
+  filterSort(sort){
     this.props.lobbiesActions.setSort(sort)
+  }
+
+  filterList(type){
   }
 
   renderFilterBar(){
     return(
       <div className="FilterBar">
-        <ButtonGroup className="warning sm m-l-sm m-t-xs m-b-xs">
-          <Button onClick={() => this.filterName()}>
-            Name
-          </Button>
-          <Button onClick={() => this.filterDate()}>
-            Date
-          </Button>
-          <Button onClick={() => this.filterPlayers()}>
-            Players
-          </Button>
-        </ButtonGroup>
-        <ButtonGroup className="m-t-xs m-b-xs">
-          <Button onClick={() => this.filterPublic('public')}>
-            Public
-          </Button>
-          <Button className="success" onClick={() => this.filterPublic('private')}>
-            Private
-          </Button>
-        </ButtonGroup>
-        <div className="pull-right">
+        <div className="filterGroup push-left m-v-xs m-h-sm">
+          <ButtonGroup className="warning m-r-xs">
+            <Button onClick={() => this.filterName()}>
+              Name
+            </Button>
+            <Button onClick={() => this.filterDate()}>
+              Date
+            </Button>
+            <Button onClick={() => this.filterPlayers()}>
+              Players
+            </Button>
+          </ButtonGroup>
           <ButtonGroup>
-            <Button onClick={() => this.filterUp('up')}>
+            <Button onClick={() => this.filterPublic('public')}>
+              Public
+            </Button>
+            <Button className="success" onClick={() => this.filterPublic('private')}>
+              Private
+            </Button>
+          </ButtonGroup>
+        </div>
+        <div className="filterGroup push-right m-v-xs m-h-sm">
+          <ButtonGroup>
+            <Button onClick={() => this.filterSort('up')}>
               <FontAwesomeIcon icon="sort-amount-up" />
             </Button>
-            <Button onClick={() => this.filterUp('down')}>
+            <Button onClick={() => this.filterSort('down')}>
               <FontAwesomeIcon icon="sort-amount-down" />
+            </Button>
+          </ButtonGroup>
+          <ButtonGroup className="m-l-xs">
+            <Button onClick={() => this.filterList('list')}>
+              <FontAwesomeIcon icon="list" />
+            </Button>
+            <Button onClick={() => this.filterList('grid')}>
+              <FontAwesomeIcon icon="th" />
             </Button>
           </ButtonGroup>
         </div>
