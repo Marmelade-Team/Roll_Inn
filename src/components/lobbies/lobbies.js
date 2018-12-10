@@ -58,15 +58,15 @@ class Lobbies extends Component {
 
   renderFilterBar(){
     return(
-      <div className='FilterBar'>
-        <ButtonGroup className='inline'>
+      <div className="FilterBar">
+        <ButtonGroup className="warning sm">
           <Button onClick={() => this.filterName()}> Name </Button>
           <Button onClick={() => this.filterDate()}> Date </Button>
           <Button onClick={() => this.filterPlayers()}> Players </Button>
         </ButtonGroup>
-        <ButtonGroup className='inline'>
+        <ButtonGroup>
           <Button onClick={() => this.filterPublic(true)}> Public </Button>
-          <Button onClick={() => this.filterPublic(false)}> Private </Button>
+          <Button className="success" onClick={() => this.filterPublic(false)}> Private </Button>
         </ButtonGroup>
       </div>
     )
