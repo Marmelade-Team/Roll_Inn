@@ -6,7 +6,7 @@ import * as gameActions from '../action/gameActions'
 
 function mapStateToProps (state) {
   return {
-    game : state.gameReducer
+    store: state.gameReducer
   }
 }
 

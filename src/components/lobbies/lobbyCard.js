@@ -10,10 +10,17 @@ class LobbyCard extends Component {
   render() {
     return (
       <div className="LobbyCard" onClick={this.props.onClick}>
-        <div><img src={this.props.srcImg} alt={this.props.name}/></div>
-        <div>{this.props.name}</div>
-        <div>{this.props.date}</div>
-        <div>{this.props.numberOfPlayer}/{this.props.MaxNumberOfPlayer}</div>
+        <div>
+          <img src={this.props.srcImg} alt={this.props.name}/>
+        </div>
+        <div>
+          <div>{this.props.name}</div>
+          <div>{this.props.store.style}</div>
+          <div>{this.props.date}</div>
+        </div>
+        <div>
+          <div>{this.props.numberOfPlayer}/{this.props.MaxNumberOfPlayer}</div>
+        </div>
       </div>
     )
   }

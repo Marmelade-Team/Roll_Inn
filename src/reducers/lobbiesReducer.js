@@ -1,7 +1,7 @@
 const initialState = {
-  lobbies : [],
-  filter : 'none',
-  locked : 'none',
+  lobbies: [],
+  filter: 'none',
+  locked: 'none',
   sort: 'up',
   style: 'grid'
 }

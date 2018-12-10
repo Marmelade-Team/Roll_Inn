@@ -1,12 +1,14 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import Lobbies from '../components/lobbies/lobbies'
+import LobbyCard from '../components/lobbies/lobbyCard'
 import * as lobbiesActions from '../action/lobbiesActions'
 
 
 function mapStateToProps (state) {
   return {
-    store: state.lobbiesReducer
+    store: {
+        style: state.lobbiesReducer.style
+    }
   }
 }
 
@@ -16,4 +18,4 @@ function mapDispatchToProps (dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Lobbies)
+export default connect(mapStateToProps, mapDispatchToProps)(LobbyCard)

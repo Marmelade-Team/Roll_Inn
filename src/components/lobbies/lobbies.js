@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './lobbies.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import LobbyCard from './lobbyCard'
+import LobbyCardContainer from '../../containers/lobbyCard'
 import Button from '../ui/button'
 import SearchBar from '../ui/searchBar'
 import ButtonGroup from '../ui/buttonGroup';
@@ -30,7 +30,7 @@ const dateToString = date => `${date.getDate()}/${date.getMonth() + 1}/${date.ge
 class Lobbies extends Component {
 
   componentWillMount(){
-    this.props.lobbies.lobbies = fakeDonnee
+    this.props.store.lobbies = fakeDonnee
   }
 
   componentDidMount(){
@@ -117,9 +117,9 @@ class Lobbies extends Component {
       <div className="Lobbies">
         <SearchBar className="m-v-lg"/>
         {this.renderFilterBar()}
-        {((this.props.lobbies.lobbies && this.props.lobbies.lobbies) || []).map ((item , index) => {
+        {((this.props.store.lobbies && this.props.store.lobbies) || []).map ((item , index) => {
           return(
-            <LobbyCard
+            <LobbyCardContainer
               key={item+index}
               srcImg={item.img}
               className="card"

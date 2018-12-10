@@ -1,21 +1,27 @@
 @import '../../style/color.scss';
 
-$cardSize : 200px;
+$card-size : 200px;
 
 .LobbyCard {
-    width : $cardSize;
+    width : $card-size;
     cursor: pointer;
     border: solid ;
     border-radius: 3px;
     display: inline-block;
-    height: $cardSize 200px;
-    width: $cardSize 200px;
+    height: $card-size 200px;
+    width: $card-size 200px;
     margin-left: 20px;
     margin-bottom: 20px;
     background-color: $color-light;
     img {
-    object-fit: cover;
-    height: $cardSize;
-    width: $cardSize;
+        object-fit: cover;
+        height: $card-size;
+        width: $card-size;
+    }
+    &.grid {
+
+    }
+    &.list {
+
     }
 }
