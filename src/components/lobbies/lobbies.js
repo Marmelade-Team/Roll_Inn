@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import './lobbies.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import LobbyCardContainer from '../../containers/lobbyCard'
 import Button from '../ui/button'
 import SearchBar from '../ui/searchBar'
-import ButtonGroup from '../ui/buttonGroup';
+import ButtonGroup from '../ui/buttonGroup'
+import { FILTERS, LOCK, SORT, STYLE } from '../../constants/lobbiesFilter'
 
 const fakeDonnee = [
   {
@@ -59,27 +60,27 @@ class Lobbies extends Component {
     console.log(index)
   }
 
-  filterName(){
-    this.props.lobbiesActions.setFilter('Name')
+  setFilter(filter){
+    if (filter === this.props.store.filter) {
+      this.props.lobbiesActions.setFilter(null)
+      return
+    }
+    this.props.lobbiesActions.setFilter(filter)
   }
 
-  filterDate(){
-    this.props.lobbiesActions.setFilter('Date')
-  }
-
-  filterPlayers(){
-    this.props.lobbiesActions.setFilter('Players')
-  }
-
-  filterPublic(locked){
+  setLocked(locked){
+    if (locked === this.props.store.locked) {
+      this.props.lobbiesActions.setLocked(null)
+      return
+    }
     this.props.lobbiesActions.setLocked(locked)
   }
   
-  filterSort(sort){
+  setSort(sort){
     this.props.lobbiesActions.setSort(sort)
   }
 
-  filteStyle(style){
+  setStyle(style){
     this.props.lobbiesActions.setStyle(style)
   }
 
@@ -88,41 +89,50 @@ class Lobbies extends Component {
       <div className="FilterBar m-b-lg">
         <div className="m-t-xs m-h-sm">
           <ButtonGroup className="warning m-b-xs m-r-xs">
-            <Button onClick={() => this.filterName()}>
+            <Button onClick={() => this.setFilter(FILTERS.NAME)}
+                className={this.props.store.filter === FILTERS.NAME ? 'active' : ''}>
               Name
             </Button>
-            <Button onClick={() => this.filterDate()}>
+            <Button onClick={() => this.setFilter(FILTERS.DATE)}
+                className={this.props.store.filter === FILTERS.DATE ? 'active' : ''}>
               Date
             </Button>
-            <Button onClick={() => this.filterPlayers()}>
+            <Button onClick={() => this.setFilter(FILTERS.PLAYERS)}
+                className={this.props.store.filter === FILTERS.PLAYERS ? 'active' : ''}>
               Players
             </Button>
           </ButtonGroup>
-          <ButtonGroup  className="m-b-xs">
-            <Button onClick={() => this.filterPublic('public')}>
+          <ButtonGroup className="m-b-xs">
+            <Button onClick={() => this.setLocked(LOCK.PUBLIC)}
+                className={this.props.store.locked === LOCK.PUBLIC ? 'active' : ''}>
               Public
             </Button>
-            <Button className="success" onClick={() => this.filterPublic('private')}>
+            <Button onClick={() => this.setLocked(LOCK.PRIVATE)}
+                className={this.props.store.locked === LOCK.PRIVATE ? 'active' : ''}>
               Private
             </Button>
           </ButtonGroup>
         </div>
         <div className="filler"></div>
-        <div className="m-t-xs m-h-sm">
+        <div className="filterRight m-t-xs m-h-sm">
           <ButtonGroup className="m-b-xs">
-            <Button onClick={() => this.filterSort('up')}>
-              <FontAwesomeIcon icon="sort-amount-up" />
+            <Button onClick={() => this.setSort(SORT.UP)}
+                className={this.props.store.sort === SORT.UP ? 'active' : ''}>
+              <FontAwesomeIcon icon="sort-amount-up"/>
             </Button>
-            <Button onClick={() => this.filterSort('down')}>
-              <FontAwesomeIcon icon="sort-amount-down" />
+            <Button onClick={() => this.setSort(SORT.DOWN)}
+                className={this.props.store.sort === SORT.DOWN ? 'active' : ''}>
+              <FontAwesomeIcon icon="sort-amount-down"/>
             </Button>
           </ButtonGroup>
           <ButtonGroup  className="m-b-xs m-l-xs">
-            <Button onClick={() => this.filteStyle('list')}>
-              <FontAwesomeIcon icon="list" />
+            <Button onClick={() => this.setStyle(STYLE.LIST)}
+                className={this.props.store.style === STYLE.LIST ? 'active' : ''}>
+              <FontAwesomeIcon icon="list"/>
             </Button>
-            <Button onClick={() => this.filteStyle('grid')}>
-              <FontAwesomeIcon icon="th" />
+            <Button onClick={() => this.setStyle(STYLE.GRID)}
+                className={this.props.store.style === STYLE.GRID ? 'active' : ''}>
+              <FontAwesomeIcon icon="th"/>
             </Button>
           </ButtonGroup>
         </div>

@@ -1,50 +1,57 @@
 @import '../../style/color.scss';
 
 %button-default {
-    background-color: $color-light;
-    border-color: $color-black;
-    &:hover,
-    &:active {
+    background-color: $color-white;
+    border-color: $color-dark;
+    &:hover {
+        background-color: $color-light;
+    }
+    &:active,
+    &.active {
         background-color: $color-dark;
     }
 }
 %button-success {
-    background-color: $color-success-light;
-    border-color: $color-success-black;
+    background-color: $color-success-white;
+    border-color: $color-success;
     &:hover {
-        background-color: $color-success-dark;
+        background-color: $color-success-light;
     }
-    &:active {
+    &:active,
+    &.active {
         background-color: $color-success;
     }
 }
 %button-info {
-    background-color: $color-info-light;
-    border-color: $color-info-black;
+    background-color: $color-info-white;
+    border-color: $color-info;
     &:hover {
-        background-color: $color-info-dark;
+        background-color: $color-info-light;
     }
-    &:active {
+    &:active,
+    &.active {
         background-color: $color-info;
     }
 }
 %button-danger {
-    background-color: $color-danger-light;
-    border-color: $color-danger-black;
+    background-color: $color-danger-white;
+    border-color: $color-danger;
     &:hover {
-        background-color: $color-danger-dark;
+        background-color: $color-danger-light;
     }
-    &:active {
+    &:active,
+    &.active {
         background-color: $color-danger;
     }
 }
 %button-warning {
-    background-color: $color-warning-light;
-    border-color: $color-warning-black;
+    background-color: $color-warning-white;
+    border-color: $color-warning;
     &:hover {
-        background-color: $color-warning-dark;
+        background-color: $color-warning-light;
     }
-    &:active {
+    &:active,
+    &.active {
         background-color: $color-warning;
     }
 }
