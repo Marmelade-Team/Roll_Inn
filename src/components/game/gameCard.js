@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 import './style/gameCard.scss';
 
 class GameCard extends Component {
-  
-
-  componentDidMount(){
-    console.log(this.props)
-  }
-  
 
   render() {
 

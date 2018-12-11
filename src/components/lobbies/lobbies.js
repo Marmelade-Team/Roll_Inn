@@ -52,12 +52,8 @@ class Lobbies extends Component {
     this.props.store.lobbies = fakeDonnee
   }
 
-  componentDidMount(){
-    console.log(this.props)
-  }
-
-  clickCard(index){
-    console.log(index)
+  clickCard(item){
+    console.log(item)
   }
 
   setFilter(filter){
@@ -157,7 +153,7 @@ class Lobbies extends Component {
                 date={dateToString(new Date(item.date))}
                 numberOfPlayer = {item.playerNumber}
                 MaxNumberOfPlayer = {item.playerMax}
-                onClick = {() => this.clickCard(index)}/>
+                onClick = {() => this.clickCard(item)}/>
             )
           })}
         </div>

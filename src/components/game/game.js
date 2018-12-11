@@ -4,11 +4,6 @@ import GameMenu from './gameMenu';
 import GameGridContainer from '../../containers/gameGridContainer';
 
 class Game extends Component {
-  
-
-  componentDidMount(){
-    console.log(this.props)
-  }
 
   render() {
     return (
