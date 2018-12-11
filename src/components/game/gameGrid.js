@@ -4,9 +4,29 @@ import GameCard from './gameCard';
 import GameGridSlot from './gameGridSlot';
 
 class GameGrid extends Component {
-  
-  componentDidMount(){
-    console.log(this.props.store)
+
+  updateDimensions = () => {
+    var w = window,
+      d = document,
+      documentElement = d.documentElement,
+      body = d.getElementsByTagName('body')[0],
+      width = w.innerWidth || documentElement.clientWidth || body.clientWidth,
+      height = w.innerHeight|| documentElement.clientHeight|| body.clientHeight;
+
+    if (this.props) {
+      console.log(width, height, this.props.gameActions)
+      this.props.gameActions.setColumns(this.props.store.columns + 1)
+      this.props.gameActions.setRows(this.props.store.rows + 1)
+    }
+  }
+  componentWillMount() {
+    this.updateDimensions();
+  }
+  componentDidMount() {
+    window.addEventListener("resize", this.updateDimensions);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions);
   }
 
   renderGridSlots() {

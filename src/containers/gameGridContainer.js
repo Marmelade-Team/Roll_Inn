@@ -12,7 +12,7 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    GameActions: bindActionCreators(gameActions, dispatch),
+    gameActions: bindActionCreators(gameActions, dispatch),
   }
 }
 
