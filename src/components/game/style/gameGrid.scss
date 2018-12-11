@@ -1,12 +1,9 @@
 .gameGrid {
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    height: 100vh;
+    height: calc(100% - 20px);
     width: 100%;
     margin : 10px;
-
 }
   
 .block {
