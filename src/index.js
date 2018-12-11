@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import Home from './components/home/home';
-import GameContainer from './containers/gameContainer';
+import Game from './components/game/game';
 import LobbiesContainer from './containers/lobbiesContainer';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
@@ -15,7 +15,7 @@ ReactDOM.render(
         <Router>
             <React.Fragment>
                 <Route exact path="/" component={Home} />
-                <Route path="/game" component={GameContainer} />
+                <Route path="/game" component={Game} />
                 <Route path="/lobbies" component={LobbiesContainer} />
             </React.Fragment>
         </Router>

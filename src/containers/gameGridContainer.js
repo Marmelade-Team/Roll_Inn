@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import Game from '../components/game/game'
+import GameGrid from '../components/game/gameGrid'
 import * as gameActions from '../action/gameActions'
 
 
@@ -12,8 +12,8 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    GameActions: bindActionCreators(gameActions, dispatch),
+    gameActions: bindActionCreators(gameActions, dispatch),
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Game)
+export default connect(mapStateToProps, mapDispatchToProps)(GameGrid)

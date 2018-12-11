@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
 import './style/game.scss';
 import GameMenu from './gameMenu';
-import GameGrid from './gameGrid';
+import GameGridContainer from '../../containers/gameGridContainer';
 
 class Game extends Component {
-  
-
-  componentDidMount(){
-    console.log(this.props)
-  }
 
   render() {
     return (
         <div className="game">
-          <GameGrid />
-          <GameMenu />
+          <GameGridContainer/>
+          <GameMenu/>
         </div>
     );
   }

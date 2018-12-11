@@ -3,10 +3,6 @@ import './lobbyCard.scss'
 
 class LobbyCard extends Component {
 
-  componentDidMount(){
-    console.log(this.props)
-  }
-
   render() {
     return (
       <div className={"LobbyCard " + this.props.store.style}

@@ -1,0 +1,20 @@
+@import '../../../style/color.scss';
+
+.gameCard{
+    background-size: cover;
+    background-position: center;
+    padding: 5px;
+    border: solid 1px $color-black;
+    z-index: 2;
+    margin: 5px;
+    .cardName {
+        line-height: 25px;
+        font-size: 1.4rem;
+        margin-bottom: 5px;
+    }
+    .cardContent {
+        height: calc(100% - 32px);
+        background-color: $color-white;
+        border: solid 1px $color-black;
+    }
+}

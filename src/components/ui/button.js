@@ -10,7 +10,7 @@ class Button extends Component {
         onClick={this.props.onClick}
         active={this.props.active}
         type='button'>
-          { this.props.children }
+          {this.props.children}
       </button>
     );
   }

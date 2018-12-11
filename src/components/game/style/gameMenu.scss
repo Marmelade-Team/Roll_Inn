@@ -1,4 +1,6 @@
+@import '../../../style/color.scss';
+
 .gameMenu {
     width: 100px;
-    background-color: gray;                           
+    background-color: $color-dark;                           
 }
