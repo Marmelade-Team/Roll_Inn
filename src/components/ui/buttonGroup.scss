@@ -1,20 +1,40 @@
-
-$border-radius: 30%;
+@import './button.scss';
 
 .buttonGroup {
+    display: inline-block;
     .button {
         display: inline-block;
-        border-radius: 0;
-        &:first-child {
-            border-top-left-radius: $border-radius;
-            border-bottom-left-radius: $border-radius;
+        @extend %button-default;
+        @extend %button-md;
+        &:not(:first-child) {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
         }
         &:not(:last-child) {
-            border-right: none;
+            border-right: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
         }
-        &:last-child {
-            border-top-right-radius: $border-radius;
-            border-bottom-right-radius: $border-radius;
-        }
+    }
+    &.success .button {
+        @extend %button-success;
+    }
+    &.info .button {
+        @extend %button-info;
+    }
+    &.danger .button {
+        @extend %button-danger;
+    }
+    &.warning .button {
+        @extend %button-warning;
+    }
+    &.sm .button {
+        @extend %button-sm;
+    }
+    &.lg .button {
+        @extend %button-lg;
+    }
+    &.block {
+        @extend %button-block;
     }
 }

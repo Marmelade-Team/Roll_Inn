@@ -1,7 +1,11 @@
+import { SORT, STYLE } from '../constants/lobbiesFilter'
+
 const initialState = {
-  lobbies : [],
-  filter : 'none',
-  locked : 'none'
+  lobbies: [],
+  filter: null,
+  locked: null,
+  sort: SORT.UP,
+  style: STYLE.LIST
 }
 
 export default (state = initialState, action) => {
@@ -16,6 +20,18 @@ export default (state = initialState, action) => {
    return  {
      ...state,
      locked : action.locked
+   }
+
+   case 'SET_SORT':
+   return  {
+     ...state,
+     sort : action.sort
+   }
+
+   case 'SET_STYLE':
+   return  {
+     ...state,
+     style : action.style
    }
 
   default:

@@ -1,0 +1,33 @@
+@import '../../style/color.scss';
+
+.searchBar {
+    display: flex;
+    width: calc(100% - 24px);
+    max-width: calc(600px - 4px);
+    margin-left: auto;
+    margin-right: auto;
+    background-color: $color-white;
+    input {
+        flex: 1;
+        line-height: 2rem;
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+    .searchIcon {
+        display: flex;
+        width: 56px;
+        border-top: solid 2px $color-black;
+        border-bottom: solid 2px $color-black;
+        border-right: solid 2px $color-black;
+        cursor: pointer;
+        &:hover {
+            background-color: $color-light;
+        }
+        &:active {
+            background-color: $color-dark;
+        }
+        svg {
+            margin: auto;
+        }
+    }
+}

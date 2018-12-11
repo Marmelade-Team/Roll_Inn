@@ -1,55 +1,117 @@
-@import '../../style/colors.scss';
+@import '../../style/color.scss';
 
-$border-radius: 30%;
-
-.button {
-    background-color: $color-light;
-    border: solid 2px $color-black;
-    padding: 2px 5px;
-    border-radius: $border-radius;
-    cursor: pointer;
-    &:hover,
-    &:active {
+%button-default {
+    background-color: $color-white;
+    border-color: $color-dark;
+    &:hover {
+        background-color: $color-light;
+    }
+    &:active,
+    &.active {
         background-color: $color-dark;
     }
-    &.success {
+}
+%button-success {
+    background-color: $color-success-white;
+    border-color: $color-success;
+    &:hover {
         background-color: $color-success-light;
-        border-color: $color-success-black;
-        &:hover {
-            background-color: $color-success-dark;
-        }
-        &:active {
-            background-color: $color-success;
-        }
+    }
+    &:active,
+    &.active {
+        background-color: $color-success;
+    }
+}
+%button-info {
+    background-color: $color-info-white;
+    border-color: $color-info;
+    &:hover {
+        background-color: $color-info-light;
+    }
+    &:active,
+    &.active {
+        background-color: $color-info;
+    }
+}
+%button-danger {
+    background-color: $color-danger-white;
+    border-color: $color-danger;
+    &:hover {
+        background-color: $color-danger-light;
+    }
+    &:active,
+    &.active {
+        background-color: $color-danger;
+    }
+}
+%button-warning {
+    background-color: $color-warning-white;
+    border-color: $color-warning;
+    &:hover {
+        background-color: $color-warning-light;
+    }
+    &:active,
+    &.active {
+        background-color: $color-warning;
+    }
+}
+
+%button-sm {
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5rem;
+    border-radius: 1.5rem;
+}
+%button-md {
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    border-radius: 1.5rem;
+}
+%button-lg {
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    border-radius: 1.5rem;
+}
+
+%button-block {
+    width: 100%;
+}
+
+.button {
+    display: inline-block;
+    border: solid 2px;
+    outline: 0;
+    transition: color .15s ease-in-out,
+        background-color .15s ease-in-out,
+        border-color .15s ease-in-out,
+        box-shadow .15s ease-in-out;
+    cursor: pointer;
+
+    @extend %button-default;
+    &.success {
+        @extend %button-success;
     }
     &.info {
-        background-color: $color-info-light;
-        border-color: $color-info-black;
-        &:hover {
-            background-color: $color-info-dark;
-        }
-        &:active {
-            background-color: $color-info;
-        }
+        @extend %button-info;
     }
     &.danger {
-        background-color: $color-danger-light;
-        border-color: $color-danger-black;
-        &:hover {
-            background-color: $color-danger-dark;
-        }
-        &:active {
-            background-color: $color-danger;
-        }
+        @extend %button-danger;
     }
     &.warning {
-        background-color: $color-warning-light;
-        border-color: $color-warning-black;
-        &:hover {
-            background-color: $color-warning-dark;
-        }
-        &:active {
-            background-color: $color-warning;
-        }
+        @extend %button-warning;
+    }
+
+    @extend %button-md;
+    &.sm {
+        @extend %button-sm;
+    }
+    &.lg {
+        @extend %button-lg;
+    }
+
+    &.block {
+        @extend %button-block;
     }
 }
