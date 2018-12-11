@@ -12,13 +12,15 @@ class GameCard extends Component {
   render() {
 
     const backgroundPicture = {
-        backgroundImage : "url(" +this.props.bg+ ")"
+        backgroundImage : "url(" +this.props.bg+ ")",
+        backgroundSize: 'cover',
+ 
     };
       
     return (
         <div className="card" style = {backgroundPicture}>
             <div className="titleCard" >
-                <h1>{this.props.title}</h1>
+                {this.props.title}
             </div>
             <div className="contentCard">
                 <textarea></textarea>
