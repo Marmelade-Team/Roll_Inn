@@ -131,7 +131,6 @@ class Lobbies extends Component {
               <FontAwesomeIcon icon="list"/>
             </Button>
             <Button onClick={() => this.setStyle(STYLE.GRID)}
-                className={this.props.store.style === STYLE.GRID}
                 className={this.props.store.style === STYLE.GRID ? 'active' : ''}>
               <FontAwesomeIcon icon="th"/>
             </Button>
