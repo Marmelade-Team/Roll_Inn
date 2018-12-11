@@ -1,16 +1,14 @@
 
 const COLUMNS = {
-    '650': 3,
-    '850': 4,
-    '1050': 5,
-    '1250': 6
+    SM: { width: 0, count: 2},
+    MD: { width: 700, count: 4},
+    LG: { width: 1200, count: 6}
 };
 
 const ROWS = {
-    '600': 3,
-    '900': 4,
-    '1200': 5,
-    '1500': 6
+    SM: { height: 0, count: 2},
+    MD: { height: 650, count: 4},
+    LG: { height: 1050, count: 6},
 };
 
 export {

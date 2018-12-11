@@ -1,16 +1,20 @@
-.card{
-    grid-column: 1/3;
-    border: dotted 1px black;
-    grid-row: 1/3;
+@import '../../../style/color.scss';
+
+.gameCard{
+    background-size: cover;
+    background-position: center;
+    padding: 5px;
+    border: solid 1px $color-black;
     z-index: 2;
-}
-
-.titleCard {
-    height: 10%;
-}
-
-.contentCard {
-    background-color: white;
-    height: 87%;
     margin: 5px;
+    .cardName {
+        line-height: 25px;
+        font-size: 1.4rem;
+        margin-bottom: 5px;
+    }
+    .cardContent {
+        height: calc(100% - 32px);
+        background-color: $color-white;
+        border: solid 1px $color-black;
+    }
 }

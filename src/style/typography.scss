@@ -10,6 +10,10 @@ input {
     }
 }
 
+.hide {
+    display: none;
+}
+
 .text-overflow-hide {
     white-space: nowrap;
     text-overflow: ellipsis;

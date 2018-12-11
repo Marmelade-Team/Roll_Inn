@@ -1,5 +1,9 @@
+@import '../../../style/color.scss';
 
 .gridSlot {
-    border: dotted 1px black;
+    border: dotted 1px $color-black;
     z-index: 1;
+    &:hover {
+        background-color: rgba($color-warning-white, 0.25);
+    }
 }

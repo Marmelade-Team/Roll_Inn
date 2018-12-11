@@ -1,22 +1,34 @@
-import React, { Component } from 'react';
-import './style/gameGrid.scss';
-import GameCard from './gameCard';
-import GameGridSlot from './gameGridSlot';
+import React, { Component } from 'react'
+import './style/gameGrid.scss'
+import GameCard from './gameCard'
+import GameGridSlot from './gameGridSlot'
+import { COLUMNS, ROWS } from '../../constants/gameGridSize'
+import { CARD_TYPES } from '../../constants/game'
 
 class GameGrid extends Component {
 
   updateDimensions = () => {
-    var w = window,
+    let w = window,
       d = document,
       documentElement = d.documentElement,
       body = d.getElementsByTagName('body')[0],
       width = w.innerWidth || documentElement.clientWidth || body.clientWidth,
       height = w.innerHeight|| documentElement.clientHeight|| body.clientHeight;
 
-    if (this.props) {
-      console.log(width, height, this.props.gameActions)
-      this.props.gameActions.setColumns(this.props.store.columns + 1)
-      this.props.gameActions.setRows(this.props.store.rows + 1)
+    if (width >= COLUMNS.LG.width) {
+      this.props.gameActions.setColumns(COLUMNS.LG.count)
+    } else if (width >= COLUMNS.MD.width) {
+      this.props.gameActions.setColumns(COLUMNS.MD.count)
+    } else {
+      this.props.gameActions.setColumns(COLUMNS.SM.count)
+    }
+
+    if (height >= ROWS.LG.height) {
+      this.props.gameActions.setRows(ROWS.LG.count)
+    } else if (height >= ROWS.MD.height) {
+      this.props.gameActions.setRows(ROWS.MD.count)
+    } else {
+      this.props.gameActions.setRows(ROWS.SM.count)
     }
   }
   componentWillMount() {
@@ -30,9 +42,9 @@ class GameGrid extends Component {
   }
 
   renderGridSlots() {
-    var indents = [];
-    for (var column = 1; column <= this.props.store.columns; column++) {
-      for (var row = 1; row <= this.props.store.rows; row++) {
+    let indents = [];
+    for (let column = 1; column <= this.props.store.columns; column++) {
+      for (let row = 1; row <= this.props.store.rows; row++) {
         indents.push(
           <GameGridSlot
             key={column + ':' + row}
@@ -46,10 +58,37 @@ class GameGrid extends Component {
 
   render() {
     return (
-        <div className="gameGrid"
-            style={{gridTemplateColumns: ('repeat(' + this.props.store.columns + ',1fr)'), gridTemplateRows: ('repeat(' + this.props.store.rows + ',1fr)')}}>
+        <div className={"gameGrid columns-" + this.props.store.columns + " rows-" + this.props.store.rows}>
           {this.renderGridSlots()}
-          <GameCard title="Adventure" bg="https://img.20mn.fr/r5SvxqSZSrWS4W587_eJxw/310x190_fond-ecran-defaut-windows-xp.jpg" />
+          <GameCard name="Adventure"
+            id={CARD_TYPES.ADVENTURE}
+            img={this.props.store.adventure.img}
+            hide={this.props.store.quest.hide}
+            columnStart={this.props.store.adventure.columnStart}
+            columnEnd={this.props.store.adventure.columnEnd}
+            rowStart={this.props.store.adventure.rowStart}
+            rowEnd={this.props.store.adventure.rowEnd}/>
+          <GameCard name="Quest"
+            id={CARD_TYPES.QUEST}
+            img={this.props.store.quest.img}
+            hide={this.props.store.quest.hide}
+            columnStart={this.props.store.quest.columnStart}
+            columnEnd={this.props.store.quest.columnEnd}
+            rowStart={this.props.store.quest.rowStart}
+            rowEnd={this.props.store.quest.rowEnd}/>
+          {(this.props.store.players || []).map ((item) => {
+            return(
+              <GameCard name={item.name}
+                key={item.id}
+                id={item.id}
+                img={item.img}
+                hide={item.hide}
+                columnStart={item.columnStart}
+                columnEnd={item.columnEnd}
+                rowStart={item.rowStart}
+                rowEnd={item.rowEnd}/>
+            )
+          })}
         </div>
     );
   }

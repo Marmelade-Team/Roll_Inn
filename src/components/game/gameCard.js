@@ -5,19 +5,19 @@ class GameCard extends Component {
 
   render() {
 
-    const backgroundPicture = {
-        backgroundImage : "url(" +this.props.bg+ ")",
-        backgroundSize: 'cover',
- 
+    var cardStyle = {
+        backgroundImage : 'url(' + this.props.img + ')',
+        gridColumn: this.props.columnStart + '/' + (this.props.columnEnd + 1),
+        gridRow: this.props.rowStart + '/' + (this.props.rowEnd + 1)
     };
       
     return (
-        <div className="card" style = {backgroundPicture}>
-            <div className="titleCard" >
-                {this.props.title}
+        <div className={"gameCard " + (this.props.hide ? 'hide' : '')} style={cardStyle}>
+            <div className="cardName">
+                {this.props.name}
             </div>
-            <div className="contentCard">
-                <textarea></textarea>
+            <div className="cardContent">
+                {this.props.children}
             </div>
         </div>
     );
