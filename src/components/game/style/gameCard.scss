@@ -1,12 +1,18 @@
 @import '../../../style/color.scss';
 
 .gameCard{
+    position: absolute;
     background-size: cover;
     background-position: center;
+    width: calc(100% - 22px);
+    height: calc(100% - 22px);
     padding: 5px;
+    margin: 5px;
     border: solid 1px $color-black;
     z-index: 2;
-    margin: 5px;
+    resize: both;
+    overflow: auto;
+    pointer-events: none;
     .cardName {
         line-height: 25px;
         font-size: 1.4rem;

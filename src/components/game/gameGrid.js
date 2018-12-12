@@ -36,6 +36,37 @@ class GameGrid extends Component {
   }
   componentDidMount() {
     window.addEventListener("resize", this.updateDimensions);
+
+    document.onmousemove = e => {
+      let w = window,
+      d = document,
+      documentElement = d.documentElement,
+      body = d.getElementsByTagName('body')[0],
+      width = w.innerWidth || documentElement.clientWidth || body.clientWidth,
+      height = w.innerHeight|| documentElement.clientHeight|| body.clientHeight;
+
+      e = e || window.event
+      let x = e.clientX
+      let y = e.clientY
+
+      console.log('=== === === === ===')
+
+      if (this.props.store.columns === COLUMNS.LG.count) {
+        console.log(Math.ceil((x / (width - 100) * 100) / (100 / COLUMNS.LG.count)))
+      } else if (this.props.store.columns === COLUMNS.MD.count) {
+        console.log(Math.ceil((x / (width - 100) * 100) / (100 / COLUMNS.MD.count)))
+      } else {
+        console.log(Math.ceil((x / width * 100) / (100 / COLUMNS.SM.count)))
+      }
+
+      if (this.props.store.rows === ROWS.LG.count) {
+        console.log(Math.ceil((y / height * 100) / (100 / ROWS.LG.count)))
+      } else if (this.props.store.rows === ROWS.MD.count) {
+        console.log(Math.ceil((y / height * 100) / (100 / ROWS.MD.count)))
+      } else {
+        console.log(Math.ceil((y / height * 100) / (100 / ROWS.SM.count)))
+      }
+    };
   }
   componentWillUnmount() {
     window.removeEventListener("resize", this.updateDimensions);

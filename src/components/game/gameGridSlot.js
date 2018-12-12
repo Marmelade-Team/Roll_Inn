@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import './style/gameGridSlot.scss';
+import React, { Component } from 'react'
+import './style/gameGridSlot.scss'
 
 class GameGridSlot extends Component {
   
