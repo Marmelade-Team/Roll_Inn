@@ -2,6 +2,7 @@
 
 .gameCard{
     position: absolute;
+    background-color: $color-white;
     background-size: cover;
     background-position: center;
     width: calc(100% - 22px);
@@ -10,9 +11,6 @@
     margin: 5px;
     border: solid 1px $color-black;
     z-index: 2;
-    resize: both;
-    overflow: auto;
-    pointer-events: none;
     .cardName {
         line-height: 25px;
         font-size: 1.4rem;
@@ -22,5 +20,27 @@
         height: calc(100% - 32px);
         background-color: $color-white;
         border: solid 1px $color-black;
+    }
+    .resize-box {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        line-height: 20px;
+        width: 20px;
+        background-color: $color-warning;
+        border-top: solid 1px $color-black;
+        border-left: solid 1px $color-black;
+        cursor: pointer;
+        &.active {
+            background-color: $color-warning-dark;
+        }
+        &:hover {
+            background-color: $color-warning-light;
+        }
+        svg {
+            margin-bottom: 1px;
+            margin-left: 3px;
+            transform: rotate(45deg);
+        }
     }
 }
