@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import './style/gameGrid.scss'
-import GameCard from './gameCard'
 import CardAdventureContainer from '../../containers/gameCardAdventureContainer'
 import CardQuestContainer from '../../containers/gameCardQuestContainer'
+import CardPlayer from './cardPlayer'
 import GameGridSlot from './gameGridSlot'
 import { COLUMNS, ROWS } from '../../constants/gameGridSize'
 
@@ -96,9 +96,8 @@ class GameGrid extends Component {
           <CardQuestContainer/>
           {(this.props.store.players || []).map ((item) => {
             return(
-              <GameCard name={item.name}
+              <CardPlayer
                 key={item.id}
-                id={item.id}
                 card={item}/>
             )
           })}

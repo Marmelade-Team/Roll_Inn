@@ -3,11 +3,11 @@ import './style/cardAdventure.scss';
 import GameCard from './gameCard'
 import { CARD_TYPES } from '../../constants/game'
 
-class cardAdventure extends Component {
+class CardAdventure extends Component {
     render() {
             
         return (
-            <GameCard
+            <GameCard className="cardAdventure"
                     id={CARD_TYPES.ADVENTURE}
                     name="Adventure"
                     card={this.props.store.adventure}>
@@ -17,4 +17,4 @@ class cardAdventure extends Component {
     }
 }
 
-export default cardAdventure;
+export default CardAdventure;

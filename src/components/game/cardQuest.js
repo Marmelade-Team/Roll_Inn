@@ -7,7 +7,7 @@ class CardQuest extends Component {
     render() {
             
         return (
-            <GameCard
+            <GameCard className="cardQuest"
                     id={CARD_TYPES.QUEST}
                     name="Quest"
                     card={this.props.store.quest}>

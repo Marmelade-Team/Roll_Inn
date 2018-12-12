@@ -22,12 +22,12 @@ class GameCard extends Component {
         }
             
         return (
-            <div className={"gameCard " + (this.props.card.hide ? 'hide' : '')} style={cardStyle}>
+            <div className={"gameCard " + (this.props.card.hide ? 'hide ' : '') + this.props.className} style={cardStyle}>
                 <div className="cardName">
                     {this.props.name}
                 </div>
                 <div className="cardContent">
-                    {this.props.card.children}
+                    {this.props.children}
                 </div>
                 <div className={"resize-box " + (this.state.resizing ? 'active' : '')}
                         onClick={() => this.switchResizing()}>
