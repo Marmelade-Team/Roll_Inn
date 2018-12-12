@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import './style/gameGrid.scss'
 import GameCard from './gameCard'
+import CardAdventureContainer from '../../containers/gameCardAdventureContainer'
 import CardQuestContainer from '../../containers/gameCardQuestContainer'
 import GameGridSlot from './gameGridSlot'
 import { COLUMNS, ROWS } from '../../constants/gameGridSize'
-import { CARD_TYPES } from '../../constants/game'
 
 class GameGrid extends Component {
 
@@ -92,9 +92,7 @@ class GameGrid extends Component {
     return (
         <div className={"gameGrid columns-" + this.props.store.columns + " rows-" + this.props.store.rows}>
           {this.renderGridSlots()}
-          <GameCard name="Adventure"
-            id={CARD_TYPES.ADVENTURE}
-            card={this.props.store.adventure}/>
+          <CardAdventureContainer/>
           <CardQuestContainer/>
           {(this.props.store.players || []).map ((item) => {
             return(
