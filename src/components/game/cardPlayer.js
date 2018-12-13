@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import './style/cardPlayer.scss';
-import GameCard from './gameCard'
+import GameCardContainer from '../../containers/gameCardContainer'
 
 class CardPlayer extends Component {
     render() {
             
         return (
-            <GameCard className="cardPlayer"
+            <GameCardContainer className="cardPlayer"
                     id={this.props.card.id}
                     name={this.props.card.name}
                     card={this.props.card}>
                 oui
-            </GameCard>
+            </GameCardContainer>
         );
     }
 }

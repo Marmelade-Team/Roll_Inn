@@ -4,13 +4,12 @@ import './style/gameCard.scss';
 
 class GameCard extends Component {
 
-    state = {
-        resizing: false
-    };
-
     switchResizing() {
-        console.log("lol")
-        this.setState({ resizing: !this.state.resizing })
+        if (this.props.store.resizingCard === this) {
+            this.props.gameActions.setResizingCard(null)
+            return
+        }
+        this.props.gameActions.setResizingCard(this)
     };
 
     render() {
@@ -24,12 +23,13 @@ class GameCard extends Component {
         return (
             <div className={"gameCard " + (this.props.card.hide ? 'hide ' : '') + this.props.className} style={cardStyle}>
                 <div className="cardName">
+                    {this.props.icon}
                     {this.props.name}
                 </div>
                 <div className="cardContent">
                     {this.props.children}
                 </div>
-                <div className={"resize-box " + (this.state.resizing ? 'active' : '')}
+                <div className={"resize-box " + (this.props.store.resizingCard === this ? 'active' : '')}
                         onClick={() => this.switchResizing()}>
                     <FontAwesomeIcon icon="arrows-alt-h" size="sm"/>
                 </div>

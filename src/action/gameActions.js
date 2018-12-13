@@ -11,3 +11,10 @@ export function setColumns (columns) {
       rows
     }
   }
+
+  export function setResizingCard (resizingCard) {
+    return {
+      type: 'SET_RESIZING_CARD',
+      resizingCard
+    }
+  }

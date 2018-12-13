@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import './style/cardQuest.scss';
-import GameCard from './gameCard'
+import GameCardContainer from '../../containers/gameCardContainer'
 import { CARD_TYPES } from '../../constants/game'
 
 class CardQuest extends Component {
     render() {
             
         return (
-            <GameCard className="cardQuest"
+            <GameCardContainer className="cardQuest"
                     id={CARD_TYPES.QUEST}
                     name="Quest"
                     card={this.props.store.quest}>
                 oui
-            </GameCard>
+            </GameCardContainer>
         );
     }
 }

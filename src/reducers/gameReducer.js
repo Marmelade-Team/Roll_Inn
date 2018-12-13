@@ -3,6 +3,7 @@ import { COLUMNS, ROWS } from '../constants/gameGridSize'
 const initialState = {
   columns: COLUMNS.SM.count,
   rows: ROWS.SM.count,
+  resizingCard: null,
   adventure: {
     img: 'https://img.20mn.fr/r5SvxqSZSrWS4W587_eJxw/310x190_fond-ecran-defaut-windows-xp.jpg',
     hide: false,
@@ -54,6 +55,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         rows: action.rows
+      }
+    case 'SET_RESIZING_CARD':
+      return {
+        ...state,
+        resizingCard: action.resizingCard
       }
     default:
       return state
