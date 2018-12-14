@@ -9,6 +9,7 @@ class CardPlayer extends Component {
             <GameCardContainer className="cardPlayer"
                     id={this.props.card.id}
                     name={this.props.card.name}
+                    icon="user"
                     card={this.props.card}>
                 oui
             </GameCardContainer>

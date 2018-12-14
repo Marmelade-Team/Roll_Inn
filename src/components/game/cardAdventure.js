@@ -10,6 +10,7 @@ class CardAdventure extends Component {
             <GameCardContainer className="cardAdventure"
                     id={CARD_TYPES.ADVENTURE}
                     name="Adventure"
+                    icon="dragon"
                     card={this.props.store.adventure}>
                 oui
             </GameCardContainer>

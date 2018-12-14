@@ -23,8 +23,14 @@ class GameCard extends Component {
         return (
             <div className={"gameCard " + (this.props.card.hide ? 'hide ' : '') + this.props.className} style={cardStyle}>
                 <div className="cardName">
-                    {this.props.icon}
+                    <div className=""></div>
+                    {this.props.icon &&
+                        <FontAwesomeIcon icon={this.props.icon} className="m-r-sm"/>
+                    }
                     {this.props.name}
+                    <div className="closeIcon pull-right">
+                        <FontAwesomeIcon icon="times"/>
+                    </div>
                 </div>
                 <div className="cardContent">
                     {this.props.children}

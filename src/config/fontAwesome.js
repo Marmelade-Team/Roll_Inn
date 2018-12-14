@@ -6,7 +6,11 @@ import {
     faList,
     faTh,
     faSearch,
-    faArrowsAltH
+    faArrowsAltH,
+    faTimes,
+    faDragon,
+    faScroll,
+    faUser
 } from '@fortawesome/free-solid-svg-icons'
 import {
 } from '@fortawesome/free-brands-svg-icons'
@@ -17,5 +21,9 @@ library.add(
     faList,
     faTh,
     faSearch,
-    faArrowsAltH
+    faArrowsAltH,
+    faTimes,
+    faDragon,
+    faScroll,
+    faUser
 );

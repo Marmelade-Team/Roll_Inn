@@ -10,6 +10,7 @@ class CardQuest extends Component {
             <GameCardContainer className="cardQuest"
                     id={CARD_TYPES.QUEST}
                     name="Quest"
+                    icon="scroll"
                     card={this.props.store.quest}>
                 oui
             </GameCardContainer>

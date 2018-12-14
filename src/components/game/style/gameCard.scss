@@ -15,6 +15,13 @@
         line-height: 25px;
         font-size: 1.4rem;
         margin-bottom: 5px;
+        color: $color-white;
+        .closeIcon {
+            cursor: pointer;
+            &:hover {
+                color: $color-danger;
+            }
+        }
     }
     .cardContent {
         height: calc(100% - 32px);
