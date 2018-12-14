@@ -8,6 +8,13 @@ import { COLUMNS, ROWS } from '../../constants/gameGridSize'
 
 class GameGrid extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      cells: []
+    };
+  }
+
   updateDimensions = () => {
     let w = window,
       d = document,
@@ -39,33 +46,50 @@ class GameGrid extends Component {
     window.addEventListener("resize", this.updateDimensions);
 
     document.onmousemove = e => {
-      let w = window,
-      d = document,
-      documentElement = d.documentElement,
-      body = d.getElementsByTagName('body')[0],
-      width = w.innerWidth || documentElement.clientWidth || body.clientWidth,
-      height = w.innerHeight|| documentElement.clientHeight|| body.clientHeight;
+      if (this.props.store.resizingCard !== null) {
+        let w = window,
+        d = document,
+        documentElement = d.documentElement,
+        body = d.getElementsByTagName('body')[0],
+        width = w.innerWidth || documentElement.clientWidth || body.clientWidth,
+        height = w.innerHeight|| documentElement.clientHeight|| body.clientHeight;
+  
+        e = e || window.event
+        let x = e.clientX
+        let y = e.clientY
+  
+        console.log('=== === === === ===')
+        let currentColumn = 0;
+        let currentRow = 0;
+  
+        if (this.props.store.columns === COLUMNS.LG.count) {
+          currentColumn = Math.ceil((x / (width - 100) * 100) / (100 / COLUMNS.LG.count))
+        } else if (this.props.store.columns === COLUMNS.MD.count) {
+          currentColumn = Math.ceil((x / (width - 100) * 100) / (100 / COLUMNS.MD.count))
+        } else {
+          currentColumn = Math.ceil((x / width * 100) / (100 / COLUMNS.SM.count))
+        }
+  
+        if (this.props.store.rows === ROWS.LG.count) {
+          currentRow = Math.ceil((y / height * 100) / (100 / ROWS.LG.count))
+        } else if (this.props.store.rows === ROWS.MD.count) {
+          currentRow= Math.ceil((y / height * 100) / (100 / ROWS.MD.count))
+        } else {
+          currentRow = Math.ceil((y / height * 100) / (100 / ROWS.SM.count))
+        }
 
-      e = e || window.event
-      let x = e.clientX
-      let y = e.clientY
-
-      console.log('=== === === === ===')
-
-      if (this.props.store.columns === COLUMNS.LG.count) {
-        console.log(Math.ceil((x / (width - 100) * 100) / (100 / COLUMNS.LG.count)))
-      } else if (this.props.store.columns === COLUMNS.MD.count) {
-        console.log(Math.ceil((x / (width - 100) * 100) / (100 / COLUMNS.MD.count)))
-      } else {
-        console.log(Math.ceil((x / width * 100) / (100 / COLUMNS.SM.count)))
-      }
-
-      if (this.props.store.rows === ROWS.LG.count) {
-        console.log(Math.ceil((y / height * 100) / (100 / ROWS.LG.count)))
-      } else if (this.props.store.rows === ROWS.MD.count) {
-        console.log(Math.ceil((y / height * 100) / (100 / ROWS.MD.count)))
-      } else {
-        console.log(Math.ceil((y / height * 100) / (100 / ROWS.SM.count)))
+        console.log(this.props.store.resizingCard.props.card.columnStart, currentColumn)
+        console.log(this.props.store.resizingCard.props.card.rowStart, currentRow)
+        if (currentColumn < this.props.store.resizingCard.props.card.columnStart
+            || currentRow < this.props.store.resizingCard.props.card.rowStart) {
+          return
+        }
+        for (let columnIndex = this.props.store.resizingCard.props.card.columnStart; columnIndex < currentColumn; columnIndex++) {
+          
+          for (let rowIndex = this.props.store.resizingCard.props.card.rowStart; rowIndex < currentRow; rowIndex++) {
+            
+          }
+        }
       }
     };
   }
@@ -74,18 +98,20 @@ class GameGrid extends Component {
   }
 
   renderGridSlots() {
-    let indents = [];
+    this.state.cells = [];
     for (let column = 1; column <= this.props.store.columns; column++) {
+      let newColumn = [];
       for (let row = 1; row <= this.props.store.rows; row++) {
-        indents.push(
+        newColumn.push(
           <GameGridSlot
             key={column + ':' + row}
             column={column}
             row={row}/>
         );
       }
+      this.state.cells.push(newColumn);
     }
-    return indents;
+    return this.state.cells;
   }
 
   render() {
