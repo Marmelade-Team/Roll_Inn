@@ -11,7 +11,8 @@ class GameGrid extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cells: []
+      cells: [],
+      cellsHovering: null
     };
   }
 
@@ -81,15 +82,24 @@ class GameGrid extends Component {
         console.log(this.props.store.resizingCard.props.card.columnStart, currentColumn)
         console.log(this.props.store.resizingCard.props.card.rowStart, currentRow)
         if (currentColumn < this.props.store.resizingCard.props.card.columnStart
-            || currentRow < this.props.store.resizingCard.props.card.rowStart) {
+            || currentRow < this.props.store.resizingCard.props.card.rowStart
+            || currentColumn > this.props.store.columns
+            || currentRow > this.props.store.rows) {
           return
         }
-        for (let columnIndex = this.props.store.resizingCard.props.card.columnStart; columnIndex < currentColumn; columnIndex++) {
-          
-          for (let rowIndex = this.props.store.resizingCard.props.card.rowStart; rowIndex < currentRow; rowIndex++) {
-            
+        
+        let cellsHoveringCopy = this.state.cellsHovering
+        for (let columnIndex = 1; columnIndex <= this.props.store.columns; columnIndex++) {
+          for (let rowIndex = 1; rowIndex <= this.props.store.rows; rowIndex++) {
+            cellsHoveringCopy[columnIndex][rowIndex] = false
           }
         }
+        for (let columnIndex = this.props.store.resizingCard.props.card.columnStart; columnIndex <= currentColumn; columnIndex++) {
+          for (let rowIndex = this.props.store.resizingCard.props.card.rowStart; rowIndex <= currentRow; rowIndex++) {
+            cellsHoveringCopy[columnIndex][rowIndex] = true
+          }
+        }
+        this.setState({ cellsHovering: cellsHoveringCopy })
       }
     };
   }
@@ -97,21 +107,41 @@ class GameGrid extends Component {
     window.removeEventListener("resize", this.updateDimensions);
   }
 
+  isHovering(column, row) {
+    return column >= this.props.store.resizingCard.props.card.columnStart
+        && row >= this.props.store.resizingCard.props.card.rowStart
+        && column <= this.state.currentColumn
+        && row <= this.state.currentRow
+  }
+
   renderGridSlots() {
-    this.state.cells = [];
+    if (!this.state.cellsHovering || Object.keys(this.state.cellsHovering).length !== this.props.store.columns) {
+      this.state.cellsHovering = {}
+      for (let column = 1; column <= this.props.store.columns; column++) {
+        let newColumnHovering = {}
+        for (let row = 1; row <= this.props.store.rows; row++) {
+          newColumnHovering[row] = false
+        }
+        this.state.cellsHovering[column] = newColumnHovering
+      }
+    }
+
+    this.state.cells = []
     for (let column = 1; column <= this.props.store.columns; column++) {
-      let newColumn = [];
+      let newColumn = []
       for (let row = 1; row <= this.props.store.rows; row++) {
         newColumn.push(
           <GameGridSlot
             key={column + ':' + row}
             column={column}
-            row={row}/>
+            row={row}
+            hovering={this.state.cellsHovering[column][row]}/>
         );
       }
-      this.state.cells.push(newColumn);
+      this.state.cells.push(newColumn)
     }
-    return this.state.cells;
+
+    return this.state.cells
   }
 
   render() {
