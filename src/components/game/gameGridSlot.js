@@ -6,7 +6,8 @@ class GameGridSlot extends Component {
     render() {
         return (
             <div className={"gridSlot " + (this.props.hovering ? "hovering " : "") + this.props.className}
-                style={{gridColumn: this.props.column, gridRow: this.props.row}}>
+                style={{gridColumn: this.props.column, gridRow: this.props.row}}
+                onClick={this.props.onClick}>
             </div>
         );
     }

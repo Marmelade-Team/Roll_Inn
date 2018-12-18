@@ -5,6 +5,7 @@ import CardQuestContainer from '../../containers/gameCardQuestContainer'
 import CardPlayer from './cardPlayer'
 import GameGridSlot from './gameGridSlot'
 import { COLUMNS, ROWS } from '../../constants/gameGridSize'
+import { CARD_TYPES } from '../../constants/game'
 
 class GameGrid extends Component {
 
@@ -58,8 +59,7 @@ class GameGrid extends Component {
         e = e || window.event
         let x = e.clientX
         let y = e.clientY
-  
-        console.log('=== === === === ===')
+        
         let currentColumn = 0;
         let currentRow = 0;
   
@@ -78,9 +78,7 @@ class GameGrid extends Component {
         } else {
           currentRow = Math.ceil((y / height * 100) / (100 / ROWS.SM.count))
         }
-
-        console.log(this.props.store.resizingCard.props.card.columnStart, currentColumn)
-        console.log(this.props.store.resizingCard.props.card.rowStart, currentRow)
+        
         if (currentColumn < this.props.store.resizingCard.props.card.columnStart
             || currentRow < this.props.store.resizingCard.props.card.rowStart
             || currentColumn > this.props.store.columns
@@ -114,6 +112,23 @@ class GameGrid extends Component {
         && row <= this.state.currentRow
   }
 
+  hoveringClick(column, row) {
+    if (!this.props.store.resizingCard) {
+      return
+    }
+    console.log(this.props.store.resizingCard, this.props.store.resizingCard.props.id)
+    if (this.props.store.resizingCard.props.id === CARD_TYPES.QUEST) {
+      this.props.store.quest.columnEnd = column
+      this.props.store.quest.rowEnd = row
+    } else if (this.props.store.resizingCard.props.id === CARD_TYPES.ADVENTURE) {
+      this.props.store.adventure.columnEnd = column
+      this.props.store.adventure.rowEnd = row
+    } else if (this.props.store.resizingCard.props.id === CARD_TYPES.PLAYERS) {
+      this.props.store.players[this.props.store.resizingCard.props.playerId].columnEnd = column
+      this.props.store.players[this.props.store.resizingCard.props.playerId].rowEnd = row
+    }
+  }
+
   renderGridSlots() {
     if (!this.state.cellsHovering || Object.keys(this.state.cellsHovering).length !== this.props.store.columns) {
       this.state.cellsHovering = {}
@@ -135,7 +150,8 @@ class GameGrid extends Component {
             key={column + ':' + row}
             column={column}
             row={row}
-            hovering={this.state.cellsHovering[column][row]}/>
+            hovering={this.state.cellsHovering[column][row]}
+            onClick={() => this.hoveringClick(column, row)}/>
         );
       }
       this.state.cells.push(newColumn)

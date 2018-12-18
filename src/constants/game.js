@@ -1,7 +1,8 @@
 
 const CARD_TYPES = {
     ADVENTURE: 'adventure',
-    QUEST: 'quest'
+    QUEST: 'quest',
+    PLAYERS: 'players'
 };
 
 export {
