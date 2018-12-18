@@ -61,6 +61,21 @@ export default (state = initialState, action) => {
         ...state,
         resizingCard: action.resizingCard
       }
+    case 'SET_ADVENTURE':
+      return {
+        ...state,
+        adventure: action.adventure
+      }
+    case 'SET_QUEST':
+      return {
+        ...state,
+        quest: action.quest
+      }
+    case 'SET_PLAYERS':
+      return {
+        ...state,
+        players: action.players
+      }
     default:
       return state
   }

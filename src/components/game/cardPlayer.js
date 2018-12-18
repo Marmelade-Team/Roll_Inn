@@ -9,7 +9,7 @@ class CardPlayer extends Component {
         return (
             <GameCardContainer className="cardPlayer"
                     id={CARD_TYPES.PLAYERS}
-                    playerId={this.props.card.id}
+                    playerId={this.props.playerId}
                     name={this.props.card.name}
                     icon="user"
                     card={this.props.card}>

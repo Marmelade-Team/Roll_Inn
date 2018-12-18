@@ -98,6 +98,21 @@ class GameGrid extends Component {
           }
         }
         this.setState({ cellsHovering: cellsHoveringCopy })
+
+        console.log(this.props.store.resizingCard.props.playerId)
+        if (this.props.store.resizingCard.props.id === CARD_TYPES.ADVENTURE) {
+          this.props.store.adventure.columnEnd = currentColumn
+          this.props.store.adventure.rowEnd = currentRow
+          this.props.gameActions.setAdventure(this.props.store.adventure)
+        } else if (this.props.store.resizingCard.props.id === CARD_TYPES.QUEST) {
+          this.props.store.quest.columnEnd = currentColumn
+          this.props.store.quest.rowEnd = currentRow
+          this.props.gameActions.setQuest(this.props.store.quest)
+        } else if (this.props.store.resizingCard.props.id === CARD_TYPES.PLAYERS) {
+          this.props.store.players[this.props.store.resizingCard.props.playerId].columnEnd = currentColumn
+          this.props.store.players[this.props.store.resizingCard.props.playerId].rowEnd = currentRow
+          this.props.gameActions.setPlayers(this.props.store.players)
+        }
       }
     };
   }
@@ -110,23 +125,6 @@ class GameGrid extends Component {
         && row >= this.props.store.resizingCard.props.card.rowStart
         && column <= this.state.currentColumn
         && row <= this.state.currentRow
-  }
-
-  hoveringClick(column, row) {
-    if (!this.props.store.resizingCard) {
-      return
-    }
-    console.log(this.props.store.resizingCard, this.props.store.resizingCard.props.id)
-    if (this.props.store.resizingCard.props.id === CARD_TYPES.QUEST) {
-      this.props.store.quest.columnEnd = column
-      this.props.store.quest.rowEnd = row
-    } else if (this.props.store.resizingCard.props.id === CARD_TYPES.ADVENTURE) {
-      this.props.store.adventure.columnEnd = column
-      this.props.store.adventure.rowEnd = row
-    } else if (this.props.store.resizingCard.props.id === CARD_TYPES.PLAYERS) {
-      this.props.store.players[this.props.store.resizingCard.props.playerId].columnEnd = column
-      this.props.store.players[this.props.store.resizingCard.props.playerId].rowEnd = row
-    }
   }
 
   renderGridSlots() {
@@ -150,8 +148,7 @@ class GameGrid extends Component {
             key={column + ':' + row}
             column={column}
             row={row}
-            hovering={this.state.cellsHovering[column][row]}
-            onClick={() => this.hoveringClick(column, row)}/>
+            hovering={this.state.cellsHovering[column][row]}/>
         );
       }
       this.state.cells.push(newColumn)
@@ -166,11 +163,12 @@ class GameGrid extends Component {
           {this.renderGridSlots()}
           <CardAdventureContainer/>
           <CardQuestContainer/>
-          {(this.props.store.players || []).map ((item) => {
+          {(this.props.store.players || []).map ((item, index) => {
             return(
               <CardPlayer
                 key={item.id}
-                card={item}/>
+                card={item}
+                playerId={index}/>
             )
           })}
         </div>
