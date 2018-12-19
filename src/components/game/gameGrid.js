@@ -128,18 +128,20 @@ class GameGrid extends Component {
   }
 
   renderGridSlots() {
+    let cellsHoveringCopy = this.state.cellsHovering
+    let cellsCopy = []
+
     if (!this.state.cellsHovering || Object.keys(this.state.cellsHovering).length !== this.props.store.columns) {
-      this.state.cellsHovering = {}
+      cellsHoveringCopy = {}
       for (let column = 1; column <= this.props.store.columns; column++) {
         let newColumnHovering = {}
         for (let row = 1; row <= this.props.store.rows; row++) {
           newColumnHovering[row] = false
         }
-        this.state.cellsHovering[column] = newColumnHovering
+        cellsHoveringCopy[column] = newColumnHovering
       }
     }
 
-    this.state.cells = []
     for (let column = 1; column <= this.props.store.columns; column++) {
       let newColumn = []
       for (let row = 1; row <= this.props.store.rows; row++) {
@@ -148,13 +150,16 @@ class GameGrid extends Component {
             key={column + ':' + row}
             column={column}
             row={row}
-            hovering={this.state.cellsHovering[column][row]}/>
+            hovering={cellsHoveringCopy[column][row]}/>
         );
       }
-      this.state.cells.push(newColumn)
+      cellsCopy.push(newColumn)
     }
 
-    return this.state.cells
+    //this.setState({ cells: cellsCopy, cellsHovering: cellsHoveringCopy })
+    this.state.cells = cellsCopy
+    this.state.cellsHovering = cellsHoveringCopy
+    return cellsCopy
   }
 
   render() {
