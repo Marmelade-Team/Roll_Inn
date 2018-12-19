@@ -25,7 +25,7 @@
     }
     .cardContent {
         height: calc(100% - 32px);
-        background-color: $color-white;
+        background-color: rgba($color-white, 0.94);
         border: solid 1px $color-black;
     }
     .resize-box {

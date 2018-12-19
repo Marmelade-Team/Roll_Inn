@@ -99,19 +99,21 @@ class GameGrid extends Component {
         }
         this.setState({ cellsHovering: cellsHoveringCopy })
 
-        console.log(this.props.store.resizingCard.props.playerId)
         if (this.props.store.resizingCard.props.id === CARD_TYPES.ADVENTURE) {
-          this.props.store.adventure.columnEnd = currentColumn
-          this.props.store.adventure.rowEnd = currentRow
-          this.props.gameActions.setAdventure(this.props.store.adventure)
+          let adventureCopy = this.props.store.adventure
+          adventureCopy.columnEnd = currentColumn
+          adventureCopy.rowEnd = currentRow
+          this.props.gameActions.setAdventure(adventureCopy)
         } else if (this.props.store.resizingCard.props.id === CARD_TYPES.QUEST) {
-          this.props.store.quest.columnEnd = currentColumn
-          this.props.store.quest.rowEnd = currentRow
-          this.props.gameActions.setQuest(this.props.store.quest)
+          let questCopy = this.props.store.quest
+          questCopy.columnEnd = currentColumn
+          questCopy.rowEnd = currentRow
+          this.props.gameActions.setQuest(questCopy)
         } else if (this.props.store.resizingCard.props.id === CARD_TYPES.PLAYERS) {
-          this.props.store.players[this.props.store.resizingCard.props.playerId].columnEnd = currentColumn
-          this.props.store.players[this.props.store.resizingCard.props.playerId].rowEnd = currentRow
-          this.props.gameActions.setPlayers(this.props.store.players)
+          let playersCopy = this.props.store.players
+          playersCopy[this.props.store.resizingCard.props.playerId].columnEnd = currentColumn
+          playersCopy[this.props.store.resizingCard.props.playerId].rowEnd = currentRow
+          this.props.gameActions.setPlayers(playersCopy)
         }
       }
     };
@@ -131,7 +133,9 @@ class GameGrid extends Component {
     let cellsHoveringCopy = this.state.cellsHovering
     let cellsCopy = []
 
-    if (!this.state.cellsHovering || Object.keys(this.state.cellsHovering).length !== this.props.store.columns) {
+    if (!this.state.cellsHovering
+        || (Object.keys(this.state.cellsHovering).length !== this.props.store.columns
+        && Object.keys(Object.keys(this.state.cellsHovering)[0]).length !== this.props.store.rows)) {
       cellsHoveringCopy = {}
       for (let column = 1; column <= this.props.store.columns; column++) {
         let newColumnHovering = {}
