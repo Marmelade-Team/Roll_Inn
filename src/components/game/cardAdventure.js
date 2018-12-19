@@ -11,7 +11,8 @@ class CardAdventure extends Component {
                     id={CARD_TYPES.ADVENTURE}
                     name="Adventure"
                     icon="dragon"
-                    card={this.props.store.adventure}>
+                    card={this.props.store.adventure}
+                    onClick={this.props.onClick}>
                 oui
             </GameCardContainer>
         );

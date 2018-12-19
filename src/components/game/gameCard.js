@@ -4,6 +4,14 @@ import './style/gameCard.scss';
 
 class GameCard extends Component {
 
+    cardClick(e) {
+        e.stopPropagation()
+        if (this.props.store.resizingCard === this) {
+            this.props.gameActions.setResizingCard(null)
+        }
+        this.props.onClick()
+    }
+
     switchResizing() {
         if (this.props.store.resizingCard === this) {
             this.props.gameActions.setResizingCard(null)
@@ -21,7 +29,9 @@ class GameCard extends Component {
         }
             
         return (
-            <div className={"gameCard " + (this.props.card.hide ? 'hide ' : '') + this.props.className} style={cardStyle}>
+            <div className={"gameCard " + (this.props.card.hide ? 'hide ' : '') + this.props.className}
+                    style={cardStyle}
+                    onClick={e => this.cardClick(e)}>
                 <div className="cardName">
                     {this.props.icon &&
                         <FontAwesomeIcon icon={this.props.icon} className="m-r-sm"/>

@@ -11,7 +11,8 @@ class CardQuest extends Component {
                     id={CARD_TYPES.QUEST}
                     name="Quest"
                     icon="scroll"
-                    card={this.props.store.quest}>
+                    card={this.props.store.quest}
+                    onClick={this.props.onClick}>
                 oui
             </GameCardContainer>
         );

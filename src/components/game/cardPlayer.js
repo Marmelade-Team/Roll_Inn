@@ -12,7 +12,8 @@ class CardPlayer extends Component {
                     playerId={this.props.playerId}
                     name={this.props.card.name}
                     icon="user"
-                    card={this.props.card}>
+                    card={this.props.card}
+                    onClick={this.props.onClick}>
                 oui
             </GameCardContainer>
         );
