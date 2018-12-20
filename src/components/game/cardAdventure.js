@@ -1,0 +1,22 @@
+import React, { Component } from 'react';
+import './style/cardAdventure.scss';
+import GameCardContainer from '../../containers/gameCardContainer'
+import { CARD_TYPES } from '../../constants/game'
+
+class CardAdventure extends Component {
+    render() {
+            
+        return (
+            <GameCardContainer className="cardAdventure"
+                    id={CARD_TYPES.ADVENTURE}
+                    name="Adventure"
+                    icon="dragon"
+                    card={this.props.store.adventure}
+                    onClick={this.props.onClick}>
+                oui
+            </GameCardContainer>
+        );
+    }
+}
+
+export default CardAdventure;

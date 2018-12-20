@@ -3,7 +3,8 @@
 .gridSlot {
     border: dotted 1px $color-black;
     z-index: 1;
-    &:hover {
-        background-color: rgba($color-warning-white, 0.25);
+    &.hovering {
+        background-color: rgba($color-warning-white, 0.5);
+        cursor: pointer;
     }
 }
