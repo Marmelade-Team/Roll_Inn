@@ -7,20 +7,15 @@ import GameGridSlot from './gameGridSlot'
 import { COLUMNS, ROWS } from '../../constants/gameGridSize'
 import { CARD_TYPES } from '../../constants/game'
 
-class GameGrid extends Component {
+var cells = []
+var cellsHovering = null
+var lastState = {
+  columns: null,
+  rows: null,
+  firstPassDone: false
+}
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      cells: [],
-      cellsHovering: null,
-      lastState: {
-        columns: null,
-        rows: null,
-        firstPassDone: false
-      }
-    }
-  }
+class GameGrid extends Component {
 
   updateDimensions = () => {
     let w = window,
@@ -94,14 +89,14 @@ class GameGrid extends Component {
         return
       }
       
-      let cellsHoveringCopy = this.state.cellsHovering
+      let cellsHoveringCopy = cellsHovering
       this.clearHovering(cellsHoveringCopy)
       for (let columnIndex = this.props.store.resizingCard.props.card.columnStart; columnIndex <= currentColumn; columnIndex++) {
         for (let rowIndex = this.props.store.resizingCard.props.card.rowStart; rowIndex <= currentRow; rowIndex++) {
           cellsHoveringCopy[columnIndex][rowIndex] = true
         }
       }
-      this.setState({ cellsHovering: cellsHoveringCopy })
+      cellsHovering = cellsHoveringCopy
 
       if (this.props.store.resizingCard.props.id === CARD_TYPES.ADVENTURE) {
         let adventureCopy = this.props.store.adventure
@@ -127,53 +122,45 @@ class GameGrid extends Component {
 
   clearHovering(cellsHoveringCopy) {
     if (!cellsHoveringCopy) {
-      cellsHoveringCopy = this.state.cellsHovering
+      cellsHoveringCopy = cellsHovering
     }
     for (let columnIndex = 1; columnIndex <= this.props.store.columns; columnIndex++) {
       for (let rowIndex = 1; rowIndex <= this.props.store.rows; rowIndex++) {
         cellsHoveringCopy[columnIndex][rowIndex] = false
       }
     }
-    this.setState({ cellsHovering: cellsHoveringCopy })
+    cellsHovering = cellsHoveringCopy
+    this.renderGridSlots()
   }
 
   isHovering(column, row) {
     return column >= this.props.store.resizingCard.props.card.columnStart
         && row >= this.props.store.resizingCard.props.card.rowStart
-        && column <= this.state.currentColumn
-        && row <= this.state.currentRow
+        && column <= this.props.store.resizingCard.props.card.columnEnd
+        && row <= this.props.store.resizingCard.props.card.rowEnd
   }
 
   renderGridSlots() {
-    console.log('hahaha')
-    console.log(this.state.lastState)
-    console.log(this.props.store.resizingCard)
-    console.log(this.state.lastState.columns, this.props.store.columns)
-    console.log(this.state.lastState.rows, this.props.store.rows)
-    console.log(this.state.cellsHovering ? Object.keys(this.state.cellsHovering).length : 'nul', this.props.store.columns)
-    console.log(this.state.cellsHovering ? Object.keys(this.state.cellsHovering['1']).length : 'nul', this.props.store.rows)
-    let firstPassDoneCopy = this.state.lastState.firstPassDone
+    let firstPassDoneCopy = lastState.firstPassDone
 
     if (!this.props.store.resizingCard
-      && this.state.lastState.columns === this.props.store.columns
-      && this.state.lastState.rows === this.props.store.rows
-      && this.state.cellsHovering
-      && Object.keys(this.state.cellsHovering).length === this.props.store.columns
-      && Object.keys(this.state.cellsHovering['1']).length === this.props.store.rows) {
-        console.log('zeub', firstPassDoneCopy)
+      && lastState.columns === this.props.store.columns
+      && lastState.rows === this.props.store.rows
+      && cellsHovering
+      && Object.keys(cellsHovering).length === this.props.store.columns
+      && Object.keys(cellsHovering['1']).length === this.props.store.rows) {
         if (firstPassDoneCopy) {
-          return this.state.cells 
+          return cells 
         }
         firstPassDoneCopy = true
     }
-    console.log('youpi')
 
-    let cellsHoveringCopy = this.state.cellsHovering
+    let cellsHoveringCopy = cellsHovering
     let cellsCopy = []
 
-    if (!this.state.cellsHovering
-        || this.state.lastState.columns !== this.props.store.columns
-        || this.state.lastState.rows !== this.props.store.rows) {
+    if (!cellsHovering
+        || lastState.columns !== this.props.store.columns
+        || lastState.rows !== this.props.store.rows) {
       cellsHoveringCopy = {}
       for (let column = 1; column <= this.props.store.columns; column++) {
         let newColumnHovering = {}
@@ -197,19 +184,13 @@ class GameGrid extends Component {
       }
       cellsCopy.push(newColumn)
     }
-
-    this.setState({
-      cells: cellsCopy,
-      cellsHovering: cellsHoveringCopy,
-      lastState: {
-        columns: this.props.store.columns,
-        rows: this.props.store.rows,
-        firstPassDone: firstPassDoneCopy
-      }
-    })
-    //this.state.cells = cellsCopy
-    //this.state.cellsHovering = cellsHoveringCopy
-    console.log(cellsCopy)
+    
+    cells = cellsCopy
+    cellsHovering = cellsHoveringCopy
+    lastState.columns = this.props.store.columns
+    lastState.rows = this.props.store.rows
+    lastState.firstPassDone = firstPassDoneCopy
+    
     return cellsCopy
   }
 
