@@ -13,7 +13,12 @@ class GameGrid extends Component {
     super(props)
     this.state = {
       cells: [],
-      cellsHovering: null
+      cellsHovering: null,
+      lastState: {
+        columns: null,
+        rows: null,
+        firstPassDone: false
+      }
     }
   }
 
@@ -140,12 +145,35 @@ class GameGrid extends Component {
   }
 
   renderGridSlots() {
+    console.log('hahaha')
+    console.log(this.state.lastState)
+    console.log(this.props.store.resizingCard)
+    console.log(this.state.lastState.columns, this.props.store.columns)
+    console.log(this.state.lastState.rows, this.props.store.rows)
+    console.log(this.state.cellsHovering ? Object.keys(this.state.cellsHovering).length : 'nul', this.props.store.columns)
+    console.log(this.state.cellsHovering ? Object.keys(this.state.cellsHovering['1']).length : 'nul', this.props.store.rows)
+    let firstPassDoneCopy = this.state.lastState.firstPassDone
+
+    if (!this.props.store.resizingCard
+      && this.state.lastState.columns === this.props.store.columns
+      && this.state.lastState.rows === this.props.store.rows
+      && this.state.cellsHovering
+      && Object.keys(this.state.cellsHovering).length === this.props.store.columns
+      && Object.keys(this.state.cellsHovering['1']).length === this.props.store.rows) {
+        console.log('zeub', firstPassDoneCopy)
+        if (firstPassDoneCopy) {
+          return this.state.cells 
+        }
+        firstPassDoneCopy = true
+    }
+    console.log('youpi')
+
     let cellsHoveringCopy = this.state.cellsHovering
     let cellsCopy = []
 
     if (!this.state.cellsHovering
-        || (Object.keys(this.state.cellsHovering).length !== this.props.store.columns
-        && Object.keys(Object.keys(this.state.cellsHovering)[0]).length !== this.props.store.rows)) {
+        || this.state.lastState.columns !== this.props.store.columns
+        || this.state.lastState.rows !== this.props.store.rows) {
       cellsHoveringCopy = {}
       for (let column = 1; column <= this.props.store.columns; column++) {
         let newColumnHovering = {}
@@ -170,9 +198,18 @@ class GameGrid extends Component {
       cellsCopy.push(newColumn)
     }
 
-    //this.setState({ cells: cellsCopy, cellsHovering: cellsHoveringCopy })
-    this.state.cells = cellsCopy
-    this.state.cellsHovering = cellsHoveringCopy
+    this.setState({
+      cells: cellsCopy,
+      cellsHovering: cellsHoveringCopy,
+      lastState: {
+        columns: this.props.store.columns,
+        rows: this.props.store.rows,
+        firstPassDone: firstPassDoneCopy
+      }
+    })
+    //this.state.cells = cellsCopy
+    //this.state.cellsHovering = cellsHoveringCopy
+    console.log(cellsCopy)
     return cellsCopy
   }
 
