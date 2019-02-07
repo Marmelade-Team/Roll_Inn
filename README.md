@@ -1,23 +1,26 @@
 
 A RolePlaying website made with React.js
 
-# Documentation
+## Documentation
 
-## Specifications
+### Specifications
 - [Google Doc](https://docs.google.com/document/d/15AzZgX01uoMjGIJ7hrP3fjaZzr9-Dq3qhW_GvRdR_No/edit?usp=sharing)
 
-## Tech
+### Tasks
+- [Trello](https://trello.com/b/LOssLUQ0/ice-jdr)
+
+### Tech
 - Web : [React](https://reactjs.org/)
 - Desktop : [Electron](https://electronjs.org/)
 - DataBase : [Firebase](https://firebase.google.com/)
 
-## DataBase
+### DataBase
 - [Firebase](https://console.firebase.google.com/project/rollinn-261ae/overview)
 
-## Continuous Integration
+### Continuous Integration
 - [Travis](https://travis-ci.com/Marmelade-Team/Roll_Inn)
 
-# Commands
+## Commands
 
 Use | Command
 ------------ | -------------
